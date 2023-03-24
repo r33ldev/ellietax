@@ -1,0 +1,38 @@
+{
+  "name": "richoco",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "build+push": "next build && git add . && git commit -m 'built and deploy' && git push"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.10.5",
+    "@emotion/react": "^11.10.6",
+    "@emotion/server": "^11.10.0",
+    "@emotion/styled": "^11.10.6",
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.11.10",
+    "@types/node": "18.14.2",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@types/react-slick": "^0.23.10",
+    "aos": "^3.0.0-beta.6",
+    "eslint": "8.35.0",
+    "eslint-config-next": "13.2.1",
+    "next": "13.2.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-scroll-into-view": "^1.12.0",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
+    "typescript": "4.9.5"
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.4"
+  }
+}
