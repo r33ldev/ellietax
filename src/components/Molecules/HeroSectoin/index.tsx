@@ -79,7 +79,7 @@ export const HeroSection: React.FC<indexProps> = ({}) => {
           </Jumbotron>
         </Section>
       </Section>
-      <HeroImage width='40%'>
+      <HeroImage width='35%'>
         <Image src={heroMap} alt="" />
       </HeroImage>
     </Flex>

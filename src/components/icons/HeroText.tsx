@@ -12,7 +12,7 @@ export const HeroTextIcon: React.FC<HeroTextProps> = ({ width, height }) => {
       width={width}
       height={height}
       //   viewBox={`0 0 ${width} ${height}`}
-      viewBox="0 0 729 173"
+      viewBox="0 0 719 173"
     >
       <g id="Group_281" data-name="Group 281" transform="translate(-120 -182)">
         <text

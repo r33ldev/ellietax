@@ -8,8 +8,8 @@ interface ApplayoutProps {
 }
 
 const PageBody = styled("div")(() => ({
-  height: "100%",
-  width: "100%",
+  height: "100vh",
+  width: "100vw",
   background: "#F9F9F9",
   overflowX: "hidden",
 }));
@@ -23,8 +23,15 @@ export const Applayout: React.FC<ApplayoutProps> = ({ children, titleTag }) => {
       </Head>
 
       <PageBody>
-        <div style={{ maxWidth: "1500px", width:'100%', display: "block", margin: "0 auto", background:'red', overflow:'hidden' }}>
-          {children} 
+        <div
+          style={{
+            maxWidth: "1750px",
+            width: "100%",
+            display: "block",
+            margin: "0 auto",
+          }}
+        >
+          {children}
         </div>
       </PageBody>
     </>

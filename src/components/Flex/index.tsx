@@ -10,6 +10,7 @@ interface indexProps {
   direction?: "row" | "column";
   aos?: string;
   margin?: string;
+  width?: string;
   style?: CSSProperties;
   background?: string;
 }
@@ -27,6 +28,7 @@ export const Flex: React.FC<indexProps> = ({
   aos,
   margin,
   background,
+  width,
 }) => {
   return (
     <FlexWrapper
@@ -38,6 +40,7 @@ export const Flex: React.FC<indexProps> = ({
         gap: gap,
         flexDirection: direction,
         background: background,
+        width: width,
       }}
       data-aos={aos}
     >
