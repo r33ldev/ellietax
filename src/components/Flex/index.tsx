@@ -4,7 +4,7 @@ import React from "react";
 
 interface indexProps {
   children: React.ReactNode;
-  justify?: "center" | "space-between" | "space-around" | "space-evenly";
+  justify?: "center" | "space-between" | "space-around" | "space-evenly" | "flex-start" | "flex-end";
   align?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline";
   gap?: string;
   direction?: "row" | "column";

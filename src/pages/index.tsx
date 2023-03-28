@@ -1,7 +1,9 @@
 import AccountingSection from "@/components/Molecules/AccountingSection";
+import Contact from "@/components/Molecules/Contact";
 import CreditRepair from "@/components/Molecules/CreditRepair";
 import CustomerSupport from "@/components/Molecules/CustomerSupport";
 import EllieDescription from "@/components/Molecules/EllieDescription";
+import Footer from "@/components/Molecules/Footer";
 import HeroSection from "@/components/Molecules/HeroSectoin";
 import ServiceBanner from "@/components/Molecules/ServiceBanner";
 import TaxSection from "@/components/Molecules/TaxSection";
@@ -16,7 +18,9 @@ export default function Home() {
       <AccountingSection />
       <TaxSection />
       <CreditRepair />
-      <CustomerSupport/>
+      <CustomerSupport />
+      <Contact />
+      <Footer />
     </Applayout>
   );
 }
