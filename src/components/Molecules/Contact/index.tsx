@@ -12,7 +12,6 @@ import { styled } from "@mui/system";
 interface indexProps {}
 
 export const Contact: React.FC<indexProps> = ({}) => {
-  console.log("sdfsdf:", process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY);
   return (
     <Section id='drop-off'>
       <Section
