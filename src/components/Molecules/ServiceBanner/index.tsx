@@ -47,6 +47,7 @@ export const ServiceBanner: React.FC<indexProps> = ({}) => {
         <Flex justify="space-between">
           {bannerItems.map((item, index) => (
             <Section
+              key={index}
               styles={{
                 width: "33%",
                 textAlign: "center",

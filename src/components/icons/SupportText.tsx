@@ -21,7 +21,7 @@ export const CustomerSupportIcon: React.FC<EllieDescriptionProps> = ({}) => {
           font-weight="800"
         >
           <tspan x="0" y="56">
-            Let's talk accounting,{" "}
+            Let us talk accounting
           </tspan>
           <tspan x="0" y="132">
             tax and credit!
