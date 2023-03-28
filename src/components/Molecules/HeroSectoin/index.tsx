@@ -49,9 +49,13 @@ export const HeroSection: React.FC<indexProps> = ({}) => {
         >
           <Header>
             {navItems.map((item, index) => (
-              <ScrollIntoView selector={item.link} smooth alignToTop>
+              <ScrollIntoView
+                key={index}
+                selector={item.link}
+                smooth
+                alignToTop
+              >
                 <HeaderItem
-                  key={index}
                   onClick={() =>
                     item.link === "#hero-section" && router.push("/")
                   }
