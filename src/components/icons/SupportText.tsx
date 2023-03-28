@@ -32,7 +32,7 @@ export const CustomerSupportIcon: React.FC<EllieDescriptionProps> = ({}) => {
           id="Path_135"
           data-name="Path 135"
           d="M249,825.272c138.379-9.248,220,0,220,0"
-          transform="translate(223.569 374.317)"
+          transform="translate(243.569 374.317)"
           fill="none"
           stroke="#4e7aef"
           stroke-linecap="round"

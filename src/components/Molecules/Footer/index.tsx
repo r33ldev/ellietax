@@ -67,7 +67,7 @@ export const Footer: React.FC<indexProps> = ({}) => {
               text="917-745-3172"
             />
             <FilteredFooterImages>
-              <Image src={instagram} alt="" />
+              <Image src={instagram} alt="" style={{cursor:'pointer'}} />
               <Image src={facebook} alt="" />
               <Image src={youtube} alt="" />
             </FilteredFooterImages>
@@ -90,7 +90,7 @@ export const Footer: React.FC<indexProps> = ({}) => {
                 fontSize="1.6rem"
                 color="#494949"
                 styles={{ margin: "1rem 0 .5rem", cursor: "pointer" }}
-                text="desk@ellietax.com"
+                text="Terms"
                 weight="700"
               />
               <Text
@@ -98,7 +98,7 @@ export const Footer: React.FC<indexProps> = ({}) => {
                 fontSize="1.6rem"
                 color="#494949"
                 styles={{ margin: "1rem 0 .5rem", cursor: "pointer" }}
-                text="desk@ellietax.com"
+                text="Privacy Policy"
                 weight="700"
               />
             </Flex>
@@ -114,6 +114,8 @@ const FilteredFooterImages = styled("div")({
   gap: "1rem",
   alignItems: "center",
   "& img": {
+    zIndex: 100,
+    position: "relative",
     cursor: "pointer",
     filter: "brightness(0.5) contrast(1.2) hue-rotate(180deg)",
   },

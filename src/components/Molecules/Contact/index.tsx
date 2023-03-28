@@ -12,6 +12,7 @@ import { styled } from "@mui/system";
 interface indexProps {}
 
 export const Contact: React.FC<indexProps> = ({}) => {
+  console.log("sdfsdf:", process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY);
   return (
     <Section>
       <Section
@@ -20,10 +21,9 @@ export const Contact: React.FC<indexProps> = ({}) => {
           margin: "10rem auto",
           background: "white",
           borderRadius: "64px",
-          padding: "6rem",
         }}
       >
-        <Flex align="flex-start" gap="6rem">
+        <Flex align="flex-start" gap="6rem" padding="6rem">
           <Section styles={{ width: "50%" }}>
             <Text
               type="h1"
@@ -128,6 +128,18 @@ export const Contact: React.FC<indexProps> = ({}) => {
             </form>
           </Section>
         </Flex>
+        <Section>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126076.60549455645!2d7.261415016406246!3d9.073427900000016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0a4ce735ee95%3A0x6b62cf6341ea5d9b!2sNigerian%20Police%20Headquarters%2C%20Louis%20Edet%20House!5e0!3m2!1sen!2sng!4v1680033308887!5m2!1sen!2sng"
+            width="100%"
+            height="400"
+            // style="border:0;"
+            allowFullScreen={true}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            style={{ border: "0", borderRadius: "0 0 64px 64px" }}
+          ></iframe>
+        </Section>
       </Section>
     </Section>
   );
