@@ -1,6 +1,7 @@
 import { Button as MuiButton } from "@mui/material";
 import { Property } from "csstype";
-import React from "react";
+import Image from "next/image";
+import React, { CSSProperties } from "react";
 
 interface ButtonProps {
   text: string;
@@ -16,7 +17,7 @@ interface ButtonProps {
   border?: string;
   fontFamily?: string;
   aos?: object;
-  styles?: object;
+  styles?: CSSProperties;
 }
 const Button: React.FC<ButtonProps> = ({
   text,
@@ -32,7 +33,7 @@ const Button: React.FC<ButtonProps> = ({
   borderRadius,
   fontFamily,
   aos,
-  styles
+  styles,
 }) => {
   const Btnstyles = {
     background: background,
@@ -40,11 +41,11 @@ const Button: React.FC<ButtonProps> = ({
     width: width || "245px",
     height: height || "56px",
     fontSize: fontSize || "2rem",
-    fontFamily: fontFamily || "'Avenir' sans-serif!important",
-    borderRadius: borderRadius || "0px",
+
+    borderRadius: borderRadius || "28px",
     paddding: "0 6rem",
-    fontWeight: "500",
-    border: border || "1px solid #0A0A0A",
+
+    border: border || "none",
     ...styles,
   };
   return (
@@ -53,8 +54,18 @@ const Button: React.FC<ButtonProps> = ({
       style={{ ...Btnstyles, whiteSpace: "nowrap" }}
       onClick={onSubmit}
     >
-      {/* {addon && <img src={addon} alt="" style={{ paddingRight: "10px" }} />} */}
-      <span style={{ textTransform: textTransform }}>{text}</span>
+      {addon && (
+        <Image src={addon} alt="" style={{ paddingRight: "10px" }} width="30" />
+      )}
+      <span
+        style={{
+          textTransform: textTransform,
+          fontFamily: fontFamily || "Avenir",
+          fontWeight: "500",
+        }}
+      >
+        {text}
+      </span>
     </MuiButton>
   );
 };

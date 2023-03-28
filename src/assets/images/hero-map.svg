@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-12.97 -19 1524.97 833.6">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_38" data-name="Rectangle 38" width="537" height="797" transform="translate(975)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_2" data-name="Mask Group 2" transform="translate(-975)" clip-path="url(#clip-path)">
+    <g id="Group_278" data-name="Group 278" transform="translate(-11.473 -16.102)">
+      <rect id="Rectangle_2" data-name="Rectangle 2" width="558" height="833" transform="translate(976.473 -2.898)" fill="#dae2fa"/>
+      <g id="Group_6" data-name="Group 6" transform="translate(976 0.65)">
+        <g id="Group_5" data-name="Group 5" transform="translate(0.521)">
+          <line id="Line_1" data-name="Line 1" y2="829.554" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_1-2" data-name="Line 1" y2="829.554" transform="translate(111.58)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_1-3" data-name="Line 1" y2="829.554" transform="translate(223.161)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_1-4" data-name="Line 1" y2="829.554" transform="translate(334.741)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_1-5" data-name="Line 1" y2="829.554" transform="translate(446.322)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_1-6" data-name="Line 1" y2="829.554" transform="translate(557.902)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+        </g>
+        <g id="Group_4" data-name="Group 4">
+          <line id="Line_2" data-name="Line 2" x1="558.945" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_2-2" data-name="Line 2" x1="558.945" transform="translate(0 111.58)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_2-3" data-name="Line 2" x1="558.945" transform="translate(0 240.02)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_2-4" data-name="Line 2" x1="558.945" transform="translate(0 360.03)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_2-5" data-name="Line 2" x1="558.945" transform="translate(0 480.039)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_2-6" data-name="Line 2" x1="558" transform="translate(0.473 608.452)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_2-7" data-name="Line 2" x1="558" transform="translate(0.473 720.452)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+        </g>
+      </g>
+      <g id="Group_10" data-name="Group 10" transform="translate(976 174.277)">
+        <g id="Group_7" data-name="Group 7">
+          <path id="Path_1" data-name="Path 1" d="M1534.945,176.051s-141.822-12.514-166.849,41.712,100.109,141.822,66.74,175.192-137.651-66.74-200.219-41.712,37.541,137.651,0,175.192-93.535-23.445-150.164-25.027S976,543.12,976,543.12" transform="translate(-976 -174.803)" fill="none" stroke="#4e7aef" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+          <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(383.753 34.618)" fill="#fff" stroke="#90aeff" stroke-width="2">
+            <circle cx="8.342" cy="8.342" r="8.342" stroke="none"/>
+            <circle cx="8.342" cy="8.342" r="7.342" fill="none"/>
+          </g>
+          <g id="Ellipse_2" data-name="Ellipse 2" transform="translate(200.219 351.631)" fill="#4e7aef" stroke="#90aeff" stroke-width="2">
+            <circle cx="8.342" cy="8.342" r="8.342" stroke="none"/>
+            <circle cx="8.342" cy="8.342" r="7.342" fill="none"/>
+          </g>
+        </g>
+        <g id="Group_8" data-name="Group 8" transform="translate(245.06 7.505)">
+          <path id="Rectangle_3" data-name="Rectangle 3" d="M20,0h85.137a20,20,0,0,1,20,20V41.712a0,0,0,0,1,0,0H20a20,20,0,0,1-20-20V20A20,20,0,0,1,20,0Z" fill="#fff"/>
+          <text id="_5.850" data-name="$5.850" transform="translate(16.685 28.342)" fill="#4e7aef" font-size="20" font-family="Avenir-Heavy, Avenir" font-weight="800"><tspan x="0" y="0">$5.850</tspan></text>
+        </g>
+        <g id="Group_9" data-name="Group 9" transform="translate(202.305 377.702)">
+          <path id="Rectangle_3-2" data-name="Rectangle 3" d="M0,0H105.137a20,20,0,0,1,20,20v1.712a20,20,0,0,1-20,20H20a20,20,0,0,1-20-20V0A0,0,0,0,1,0,0Z" transform="translate(0)" fill="#4e7aef"/>
+          <text id="_0.30" data-name="$0.30" transform="translate(16.685 28.342)" fill="#fff" font-size="20" font-family="Avenir-Heavy, Avenir" font-weight="800"><tspan x="0" y="0">$0.30</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

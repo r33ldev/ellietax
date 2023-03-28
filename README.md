@@ -1,7 +1,7 @@
 richoco
 
 ```bash
-git clone https://github.com/Kingrichard-en/richoco.git
+git clone https://github.com/r33ldev/ellietax.git
 ```
 
 ```bash

@@ -1,11 +1,9 @@
-import * as React from "react";
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import createEmotionServer from "@emotion/server/create-instance";
-import theme from "@/layout/theme";
-import createEmotionCache from "@/layout/createEmotionCache";
 import Loader from "@/components/Loader";
+import createEmotionCache from "@/layout/createEmotionCache";
+import theme from "@/layout/theme";
+import createEmotionServer from "@emotion/server/create-instance";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 // import Loader from "@/components/Loader";
-import CircularProgress from "@mui/material/CircularProgress";
 
 export default class MyDocument extends Document {
   render() {
@@ -13,7 +11,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta name="theme-color" content={theme.palette.primary.main} />
-          <link rel="icon" href="/rlogo.jpeg" />
+          <link rel="icon" href="/ellietax.jpeg" />
           <style id="loaderStyles">{Loader}</style>
           <link
             rel="stylesheet"

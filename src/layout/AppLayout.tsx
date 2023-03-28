@@ -8,11 +8,10 @@ interface ApplayoutProps {
 }
 
 const PageBody = styled("div")(() => ({
-  height: "100vh",
-  // width: "100vw",
-  // overflowX: "hidden",
-  maxWidth: '1700px',
-  margin: '0 auto',
+  height: "100%",
+  width: "100%",
+  background: "#F9F9F9",
+  overflowX: "hidden",
 }));
 
 export const Applayout: React.FC<ApplayoutProps> = ({ children, titleTag }) => {
@@ -22,7 +21,12 @@ export const Applayout: React.FC<ApplayoutProps> = ({ children, titleTag }) => {
       <Head>
         <title>{title}</title>
       </Head>
-      <PageBody>{children}</PageBody>
+
+      <PageBody>
+        <div style={{ maxWidth: "1500px", width:'100%', display: "block", margin: "0 auto", background:'red', overflow:'hidden' }}>
+          {children} 
+        </div>
+      </PageBody>
     </>
   );
 };
