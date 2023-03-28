@@ -38,6 +38,9 @@ export const ServiceBanner: React.FC<indexProps> = ({}) => {
           borderRadius: "64px",
           background: "white",
           width: "85%",
+          boxShadow: "0px 1px 16px -14px rgb(0 0 0 / 75%)",
+          WebkitBoxShadow: "0px 1px 16px -14px rgb(0 0 0 / 75%)",
+          MozBoxShadow: "0px 1px 16px -14px rgb(0 0 0 / 75%)",
           margin: "0 auto",
         }}
       >
@@ -50,6 +53,7 @@ export const ServiceBanner: React.FC<indexProps> = ({}) => {
                 margin: "4rem auto",
                 display: "flex",
                 justifyContent: "center",
+                borderRight: "1px solid #E5E5E570",
               }}
             >
               <BannerItem key={index}>
@@ -61,7 +65,12 @@ export const ServiceBanner: React.FC<indexProps> = ({}) => {
                   fontSize="2rem"
                   weight="800"
                 />
-                <Text type="p" text={item.description} color="#494949" fontSize="1.4rem" />
+                <Text
+                  type="p"
+                  text={item.description}
+                  color="#494949"
+                  fontSize="1.4rem"
+                />
               </BannerItem>
             </Section>
           ))}
