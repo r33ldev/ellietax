@@ -1,4 +1,5 @@
 import AccountingSection from "@/components/Molecules/AccountingSection";
+import CreditRepair from "@/components/Molecules/CreditRepair";
 import EllieDescription from "@/components/Molecules/EllieDescription";
 import HeroSection from "@/components/Molecules/HeroSectoin";
 import ServiceBanner from "@/components/Molecules/ServiceBanner";
@@ -13,6 +14,7 @@ export default function Home() {
       <EllieDescription />
       <AccountingSection />
       <TaxSection />
+      <CreditRepair/>
     </Applayout>
   );
 }
