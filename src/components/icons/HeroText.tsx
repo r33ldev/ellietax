@@ -2,17 +2,22 @@ import React from "react";
 
 interface HeroTextProps {
   width?: string;
+  vw: number;
   height?: string;
 }
 
-export const HeroTextIcon: React.FC<HeroTextProps> = ({ width, height }) => {
+export const HeroTextIcon: React.FC<HeroTextProps> = ({
+  width,
+  height,
+  vw,
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}
-      //   viewBox={`0 0 ${width} ${height}`}
-      viewBox="0 0 719 173"
+      viewBox={`0 0 ${vw >= 1600 ? "100%" : 719} 173`}
+      // viewBox=0 0 719 173"
     >
       <g id="Group_281" data-name="Group 281" transform="translate(-120 -182)">
         <text

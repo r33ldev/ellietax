@@ -10,6 +10,7 @@ import HeroTextIcon from "@/components/icons/HeroText";
 import Text from "@/components/Text";
 import Button from "@/components/Button";
 import whatsappIcon from "@/assets/images/whatsapp-white.svg";
+import { useScreenResolution } from "@/hooks/useScreenResolution";
 interface indexProps {}
 
 export const HeroSection: React.FC<indexProps> = ({}) => {
@@ -36,6 +37,7 @@ export const HeroSection: React.FC<indexProps> = ({}) => {
       link: "#drop-off",
     },
   ];
+  const { width } = useScreenResolution();
   return (
     <Flex justify="space-between" background="white">
       <Section styles={{ width: "65%" }}>
@@ -51,7 +53,7 @@ export const HeroSection: React.FC<indexProps> = ({}) => {
             ))}
           </Header>
           <Jumbotron>
-            <HeroTextIcon width="100%" height="173" />
+            <HeroTextIcon width="100%" height="173" vw={width} />
             <Text
               type="p"
               text="Secure your small business finances with our expert financial services. From bookkeeping to tax preparation, we'll help you stay on track and grow your business. Contact us today for a consultation!"
@@ -59,7 +61,7 @@ export const HeroSection: React.FC<indexProps> = ({}) => {
               fontSize="2rem"
               styles={{ marginTop: "3rem", lineHeight: "3rem" }}
             />
-            <Flex gap="3rem" margin='3rem 0'>
+            <Flex gap="3rem" margin="3rem 0">
               <Button
                 text="Quick message"
                 background="#4E7AEF"
@@ -79,7 +81,7 @@ export const HeroSection: React.FC<indexProps> = ({}) => {
           </Jumbotron>
         </Section>
       </Section>
-      <HeroImage width='35%'>
+      <HeroImage width="35%">
         <Image src={heroMap} alt="" />
       </HeroImage>
     </Flex>
@@ -107,7 +109,7 @@ const Header = styled("nav")(() => ({
   alignItems: "center",
 }));
 const HeaderItem = styled("div")(() => ({
-  fontSize: "1.6rem",
+  fontSize: "1.8rem",
   fontWeight: 500,
   color: "#161616",
   cursor: "pointer",

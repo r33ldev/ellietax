@@ -5,14 +5,16 @@ import React from "react";
 interface indexProps {
   children: React.ReactNode;
   justify?: "center" | "space-between" | "space-around" | "space-evenly";
-  align?: "center" | "flex-start" | "flex-end";
+  align?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline";
   gap?: string;
   direction?: "row" | "column";
   aos?: string;
   margin?: string;
+  padding?: string;
   width?: string;
   style?: CSSProperties;
   background?: string;
+  borderRadius?: string;
 }
 
 const FlexWrapper = styled("div")(() => ({
@@ -27,8 +29,10 @@ export const Flex: React.FC<indexProps> = ({
   direction,
   aos,
   margin,
+  padding,
   background,
   width,
+  borderRadius,
 }) => {
   return (
     <FlexWrapper
@@ -41,6 +45,9 @@ export const Flex: React.FC<indexProps> = ({
         flexDirection: direction,
         background: background,
         width: width,
+        overflow: "hidden",
+        borderRadius: borderRadius,
+        padding: padding,
       }}
       data-aos={aos}
     >

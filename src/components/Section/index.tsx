@@ -11,7 +11,7 @@ export const Section: React.FC<indexProps> = ({ children, styles }) => {
 };
 export default Section;
 
-const SectionWrapper = styled("div")(() => ({
+const SectionWrapper = styled("section")(() => ({
   //   width: "100%",
   //   height: "100%",
 }));

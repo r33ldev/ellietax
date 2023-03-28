@@ -71,7 +71,7 @@ export const ServiceBanner: React.FC<indexProps> = ({}) => {
   );
 };
 const BannerItem = styled("div")(() => ({
-  width: "80%",
+  width: "70%",
   "&:not(:last-child)": {
     borderRight: "2px solid red",
   },
