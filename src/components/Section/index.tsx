@@ -3,11 +3,12 @@ import React from "react";
 
 interface indexProps {
   children: React.ReactNode;
+  id?: string;
   styles?: React.CSSProperties;
 }
 
-export const Section: React.FC<indexProps> = ({ children, styles }) => {
-  return <SectionWrapper style={{ ...styles }}>{children}</SectionWrapper>;
+export const Section: React.FC<indexProps> = ({ children, id, styles }) => {
+  return <SectionWrapper id={id} style={{ ...styles }}>{children}</SectionWrapper>;
 };
 export default Section;
 

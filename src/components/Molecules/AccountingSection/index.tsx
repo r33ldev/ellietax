@@ -37,7 +37,7 @@ export const AccountingSection: React.FC<indexProps> = ({}) => {
     },
   ];
   return (
-    <Section>
+    <Section id="accounting-service">
       <Section styles={{ width: "85%", margin: "0 auto" }}>
         <Section styles={{ margin: "2rem 0", width: "80%" }}>
           <Text

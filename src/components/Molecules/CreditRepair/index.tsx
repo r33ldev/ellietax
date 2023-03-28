@@ -8,7 +8,7 @@ interface indexProps {}
 
 export const CreditRepair: React.FC<indexProps> = ({}) => {
   return (
-    <Section>
+    <Section id='credit-repair'>
       <Section styles={{ width: "85%", margin: "10rem auto" }}>
         <Section styles={{ margin: "2rem 0", width: "80%" }}>
           <Text

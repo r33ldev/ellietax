@@ -15,6 +15,7 @@ interface indexProps {
   style?: CSSProperties;
   background?: string;
   borderRadius?: string;
+  id?: string;
 }
 
 const FlexWrapper = styled("div")(() => ({
@@ -33,9 +34,11 @@ export const Flex: React.FC<indexProps> = ({
   background,
   width,
   borderRadius,
+  id
 }) => {
   return (
     <FlexWrapper
+      id={id}
       style={{
         margin: margin,
         display: "flex",

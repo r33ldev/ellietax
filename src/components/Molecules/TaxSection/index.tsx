@@ -39,7 +39,7 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
     },
   ];
   return (
-    <Section>
+    <Section id='tax-service'>
       <Section styles={{ width: "85%", margin: "10rem auto" }}>
         <Section styles={{ margin: "2rem 0", width: "80%" }}>
           <Text

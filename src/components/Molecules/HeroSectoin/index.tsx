@@ -9,15 +9,17 @@ import EllieLogo from "@/assets/images/ellietax-logo.png";
 import HeroTextIcon from "@/components/icons/HeroText";
 import Text from "@/components/Text";
 import Button from "@/components/Button";
+import ScrollIntoView from "react-scroll-into-view";
 import whatsappIcon from "@/assets/images/whatsapp-white.svg";
 import { useScreenResolution } from "@/hooks/useScreenResolution";
+import { useRouter } from "next/router";
 interface indexProps {}
 
 export const HeroSection: React.FC<indexProps> = ({}) => {
   const navItems = [
     {
       name: "",
-      link: "/",
+      link: "#hero-section",
       icon: EllieLogo,
     },
     {
@@ -38,18 +40,26 @@ export const HeroSection: React.FC<indexProps> = ({}) => {
     },
   ];
   const { width } = useScreenResolution();
+  const router = useRouter();
   return (
-    <Flex justify="space-between" background="white">
+    <Flex justify="space-between" background="white" id="hero-section">
       <Section styles={{ width: "65%" }}>
         <Section
           styles={{ width: "80%", margin: "0 auto", paddingTop: "3rem" }}
         >
           <Header>
             {navItems.map((item, index) => (
-              <HeaderItem key={index}>
-                {item.icon && <Image src={item.icon} alt="" />}
-                {item.name}
-              </HeaderItem>
+              <ScrollIntoView selector={item.link} smooth alignToTop>
+                <HeaderItem
+                  key={index}
+                  onClick={() =>
+                    item.link === "#hero-section" && router.push("/")
+                  }
+                >
+                  {item.icon && <Image src={item.icon} alt="" />}
+                  {item.name}
+                </HeaderItem>
+              </ScrollIntoView>
             ))}
           </Header>
           <Jumbotron>
