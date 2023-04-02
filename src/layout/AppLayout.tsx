@@ -25,7 +25,7 @@ export const Applayout: React.FC<ApplayoutProps> = ({ children, titleTag }) => {
       <PageBody>
         <div
           style={{
-            maxWidth: "1550px",
+            maxWidth: "1750px",
             width: "100%",
             display: "block",
             margin: "0 auto",

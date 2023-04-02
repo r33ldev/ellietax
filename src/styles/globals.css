@@ -114,7 +114,9 @@ section {
 body {
   line-height: 1;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 ol,
 ul {
   list-style: none;
@@ -179,7 +181,7 @@ html {
 }
 
 ::selection {
-  background: #F9F9F9;
+  background: #f9f9f9;
   color: #000;
   font-weight: 500;
 }

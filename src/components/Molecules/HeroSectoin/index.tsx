@@ -1,27 +1,25 @@
+import EllieLogo from "@/assets/images/ellietax-logo.png";
+import heroMap from "@/assets/images/hero-map.png";
+import whatsappIcon from "@/assets/images/whatsapp-white.svg";
+import Button from "@/components/Button";
+import { Button as MuiButton } from "@mui/material";
 import Flex from "@/components/Flex";
+import HeroTextIcon from "@/components/icons/HeroText";
 import Section from "@/components/Section";
+import Text from "@/components/Text";
+import { useScreenResolution } from "@/hooks/useScreenResolution";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { BoxProps } from "@mui/material";
 import { styled } from "@mui/system";
 import Image from "next/image";
-import React from "react";
-import heroMap from "@/assets/images/hero-map.png";
-import { BoxProps } from "@mui/material";
-import EllieLogo from "@/assets/images/ellietax-logo.png";
-import HeroTextIcon from "@/components/icons/HeroText";
-import Text from "@/components/Text";
-import Button from "@/components/Button";
-import ScrollIntoView from "react-scroll-into-view";
-import whatsappIcon from "@/assets/images/whatsapp-white.svg";
-import { useScreenResolution } from "@/hooks/useScreenResolution";
 import { useRouter } from "next/router";
+import React, { useState } from "react";
+
 interface indexProps {}
 
 export const HeroSection: React.FC<indexProps> = ({}) => {
   const navItems = [
-    {
-      name: "",
-      link: "#hero-section",
-      icon: EllieLogo,
-    },
     {
       name: "Accounting Service",
       link: "#accounting-service",
@@ -34,13 +32,13 @@ export const HeroSection: React.FC<indexProps> = ({}) => {
       name: "Credit repair",
       link: "#credit-repair",
     },
-    {
-      name: "Drop-off",
-      link: "#drop-off",
-    },
   ];
   const { width } = useScreenResolution();
   const router = useRouter();
+  const [open, setOpen] = useState(false);
+  const handleClick = () => {
+    setOpen(!open);
+  };
   return (
     <Flex justify="space-between" background="white" id="hero-section">
       <Section styles={{ width: "65%" }}>
@@ -48,23 +46,48 @@ export const HeroSection: React.FC<indexProps> = ({}) => {
           styles={{ width: "80%", margin: "0 auto", paddingTop: "3rem" }}
         >
           <Header>
-            {navItems.map((item, index) => (
-              <ScrollIntoView
-                key={index}
-                selector={item.link}
-                smooth
-                alignToTop
-              >
-                <HeaderItem
-                  onClick={() =>
-                    item.link === "#hero-section" && router.push("/")
-                  }
-                >
-                  {item.icon && <Image src={item.icon} alt="" />}
-                  {item.name}
-                </HeaderItem>
-              </ScrollIntoView>
-            ))}
+            <HeaderItem onClick={() => router.push("/")}>
+              <Image src={EllieLogo} alt="" />
+            </HeaderItem>
+            <HeaderItem onClick={handleClick}>
+              Services we offer{" "}
+              {open ? (
+                <ExpandLessIcon
+                  sx={{
+                    color: "#161616",
+                    marginLeft: ".5rem",
+                  }}
+                  fontSize="large"
+                />
+              ) : (
+                <ExpandMoreIcon
+                  sx={{
+                    color: "#161616",
+                    marginLeft: ".5rem",
+                  }}
+                  fontSize="large"
+                />
+              )}
+              <ServiceMenu open={open}>
+                {navItems.map((item, idx) => (
+                  <HeaderItem
+                    key={idx}
+                    onClick={() => router.push(`${item.link}`)}
+                  >
+                    {item.name}
+                  </HeaderItem>
+                ))}
+              </ServiceMenu>
+            </HeaderItem>
+            <HeaderItem> Drop-off</HeaderItem>
+            <HeaderItem> Sign-in</HeaderItem>
+            {/* <HeaderItem> */}
+            <Button
+              text="Log-out"
+              background="#4E7AEF"
+              width="165px"
+              height="47px"
+            />
           </Header>
           <Jumbotron>
             <HeroTextIcon width="100%" height="173" vw={width} />
@@ -122,15 +145,25 @@ const Header = styled("nav")(() => ({
   justifyContent: "space-between",
   alignItems: "center",
 }));
-const HeaderItem = styled("div")(() => ({
+const HeaderItem = styled(MuiButton)(() => ({
   fontSize: "1.8rem",
   fontWeight: 500,
   color: "#161616",
   cursor: "pointer",
+  whiteSpace: "nowrap",
+  display: "flex",
+  alignItems: "center",
+  textTransform: "unset",
+  fontFamily: "Avenir, sans-serif",
+  position: "relative",
   "& img": {
     width: "100px",
     height: "21px",
-    marginRight: "2rem",
+    marginRight: "3rem",
+  },
+
+  "&:hover": {
+    backgroundColor: "transparent",
   },
 }));
 
@@ -138,3 +171,22 @@ const Jumbotron = styled("div")(() => ({
   paddingTop: "12rem",
   width: "90%",
 }));
+
+const ServiceMenu = styled("div")<{ open: boolean }>(({ open }) => ({
+  display: open ? "block" : "none",
+  position: "absolute",
+  top: "100%",
+  left: 0,
+  width: "286px",
+  backgroundColor: "white",
+  boxShadow: "0px 1px 16px -14px rgb(0 0 0 / 75%)",
+  WebkitBoxShadow: "0px 1px 16px -14px rgb(0 0 0 / 75%)",
+  MozBoxShadow: "0px 1px 16px -14px rgb(0 0 0 / 75%)",
+  borderRadius: "10px",
+  padding: "1rem",
+}));
+
+// const ServiceItem = styled("p")(() => ({
+//   fontSize: "1.8rem",
+//   fontWeight: 500,
+// }));
