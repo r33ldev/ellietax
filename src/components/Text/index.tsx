@@ -17,7 +17,7 @@ export const Text: React.FC<indexProps> = ({
   weight,
   fontSize,
 }) => {
-  styles.color = color ? color : "black";
+  styles.color = color ? color : "#161616";
   styles.fontSize = fontSize ? fontSize : "1rem";
   styles.fontWeight = weight ? weight : "normal";
   if (type === "p") return <p style={{ ...styles }}>{text}</p>;

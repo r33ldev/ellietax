@@ -76,7 +76,7 @@ const HeroImage = styled("div", {
 }));
 
 const Jumbotron = styled("div")(() => ({
-  paddingTop: "12rem",
+  marginTop: "12rem",
   width: "90%",
 }));
 

@@ -12,10 +12,11 @@ interface indexProps {
   margin?: string;
   padding?: string;
   width?: string;
-  style?: CSSProperties;
+  styles?: CSSProperties;
   background?: string;
   borderRadius?: string;
   id?: string;
+  overflow?: string;
 }
 
 const FlexWrapper = styled("div")(() => ({
@@ -34,7 +35,8 @@ export const Flex: React.FC<indexProps> = ({
   background,
   width,
   borderRadius,
-  id
+  id,
+  overflow
 }) => {
   return (
     <FlexWrapper
@@ -48,7 +50,7 @@ export const Flex: React.FC<indexProps> = ({
         flexDirection: direction,
         background: background,
         width: width,
-        overflow: "hidden",
+        overflow: overflow || "hidden",
         borderRadius: borderRadius,
         padding: padding,
       }}

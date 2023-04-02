@@ -7,6 +7,7 @@ import Image from "next/image";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import EllieLogo from "@/assets/images/ellietax-logo.png";
+import Flex from "@/components/Flex";
 
 interface HeaderProps {}
 export const HeaderNav: React.FC<HeaderProps> = ({}) => {
@@ -29,51 +30,58 @@ export const HeaderNav: React.FC<HeaderProps> = ({}) => {
   const handleClick = () => {
     setOpen(!open);
   };
+
   return (
     <Header>
       <HeaderItem onClick={() => router.push("/")}>
         <Image src={EllieLogo} alt="" />
       </HeaderItem>
-      <HeaderItem onClick={handleClick}>
-        Services we offer{" "}
-        {open ? (
-          <ExpandLessIcon
-            sx={{
-              color: "#161616",
-              marginLeft: ".5rem",
-            }}
-            fontSize="large"
-          />
-        ) : (
-          <ExpandMoreIcon
-            sx={{
-              color: "#161616",
-              marginLeft: ".5rem",
-            }}
-            fontSize="large"
-          />
-        )}
-        <ServiceMenu open={open}>
-          {navItems.map((item, idx) => (
-            <HeaderItem key={idx} onClick={() => router.push(`${item.link}`)}>
-              {item.name}
-            </HeaderItem>
-          ))}
-        </ServiceMenu>
-      </HeaderItem>
-      <HeaderItem onClick={() => router.push("/drop-off")}>
-        {" "}
-        Drop-off
-      </HeaderItem>
-      <HeaderItem onClick={() => router.push("/sign-in")}> Sign-in</HeaderItem>
-      {/* <HeaderItem> */}
-      <Button
-        text="Log-out"
-        background="#4E7AEF"
-        width="165px"
-        height="47px"
-        onSubmit={() => router.push("/sign-in")}
-      />
+      <Flex justify="flex-end" gap="2vw" overflow='unset'>
+        <HeaderItem onClick={handleClick}>
+          Services we offer{" "}
+          {open ? (
+            <ExpandLessIcon
+              sx={{
+                color: "#161616",
+                marginLeft: ".5rem",
+              }}
+              fontSize="large"
+            />
+          ) : (
+            <ExpandMoreIcon
+              sx={{
+                color: "#161616",
+                marginLeft: ".5rem",
+              }}
+              fontSize="large"
+            />
+          )}
+          {open && (
+            <ServiceMenu>
+
+              {navItems.map((item, idx) => (
+              <HeaderItem key={idx} onClick={() => router.push(`${item.link}`)}>
+                {item.name}
+              </HeaderItem>
+            ))}
+            </ServiceMenu>
+          )}
+        </HeaderItem>
+        <HeaderItem onClick={() => router.push("/drop-off")}>
+          Drop-off
+        </HeaderItem>
+        <HeaderItem onClick={() => router.push("/sign-in")}>
+          {" "}
+          Sign-in
+        </HeaderItem>
+        <Button
+          text="Log-out"
+          background="#4E7AEF"
+          width="165px"
+          height="47px"
+          onSubmit={() => router.push("/sign-in")}
+        />
+      </Flex>
     </Header>
   );
 };
@@ -93,6 +101,7 @@ const HeaderItem = styled(MuiButton)(() => ({
   alignItems: "center",
   textTransform: "unset",
   fontFamily: "Avenir, sans-serif",
+  height: "100%",
   position: "relative",
   "& img": {
     width: "100px",
@@ -104,10 +113,10 @@ const HeaderItem = styled(MuiButton)(() => ({
     backgroundColor: "transparent",
   },
 }));
-const ServiceMenu = styled("div")<{ open: boolean }>(({ open }) => ({
-  display: open ? "block" : "none",
+const ServiceMenu = styled("div")(() => ({
+  // display: open ? "block" : "none",
   position: "absolute",
-  top: "100%",
+  top: "70%",
   left: 0,
   width: "286px",
   backgroundColor: "white",
