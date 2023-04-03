@@ -6,6 +6,7 @@ interface indexProps {
   border?: string;
   placeholder?: string;
   padding?: string;
+  br?: string;
 }
 
 export const Input: React.FC<indexProps> = ({
@@ -14,6 +15,7 @@ export const Input: React.FC<indexProps> = ({
   border,
   placeholder,
   padding,
+  br
 }) => {
   return (
     <input
@@ -26,7 +28,7 @@ export const Input: React.FC<indexProps> = ({
         padding: padding || "1rem",
         fontFamily: "Avenir",
         fontSize: "1.8rem",
-        borderRadius: "8px",
+        borderRadius: br || "8px",
         outline: "none",
         resize: "none",
       }}
