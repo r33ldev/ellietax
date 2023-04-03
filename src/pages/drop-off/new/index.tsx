@@ -87,7 +87,7 @@ export const NewDropoff: React.FC<indexProps> = ({}) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
-      router.push("/drop-off");
+      router.push("/my-dropoffs");
   };
   function submitFile() {
     console.log("submitted");
@@ -263,7 +263,7 @@ export const NewDropoff: React.FC<indexProps> = ({}) => {
                 weight="500"
                 styles={{ paddingLeft: "1rem", cursor: "pointer" }}
                 onClick={() =>
-                  phase === 0 ? router.push("/drop-off") : setPhase(0)
+                  phase === 0 ? router.back() : setPhase(0)
                 }
               />
             </Flex>
@@ -287,6 +287,7 @@ const DropoffTypeWrapper = styled("div")(() => ({
   background: "#FFFFFF",
   alignItems: "center",
   height: "100vh",
+  margin: "0 auto",
 }));
 
 const Divider = styled("div")(() => ({

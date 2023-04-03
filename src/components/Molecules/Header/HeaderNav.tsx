@@ -70,9 +70,9 @@ export const HeaderNav: React.FC<HeaderProps> = ({}) => {
         <HeaderItem onClick={() => router.push("/drop-off")}>
           Drop-off
         </HeaderItem>
-        <HeaderItem onClick={() => router.push("/sign-in")}>
-          {" "}
-          Sign-in
+        <HeaderItem onClick={() => router.push("/my-dropoffs")}>
+          {/* Sign-in */}
+          Richard
         </HeaderItem>
         <Button
           text="Log-out"

@@ -22,7 +22,6 @@ export const Text: React.FC<indexProps> = ({
   styles.color = color ? color : "#161616";
   styles.fontSize = fontSize ? fontSize : "1rem";
   styles.fontWeight = weight ? weight : "normal";
-  styles.cursor = onClick ? "pointer" : "normal";
   
   if (type === "p") return <p onClick={onClick} style={{ ...styles }}>{text}</p>;
   if (type === "h1") return <h1 style={{ ...styles }}>{text}</h1>;
