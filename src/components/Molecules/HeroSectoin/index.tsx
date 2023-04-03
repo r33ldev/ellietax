@@ -69,9 +69,9 @@ export default HeroSection;
 const HeroImage = styled("div", {
   shouldForwardProp: (prop) => prop !== "width",
 })<BoxProps & { width: string }>(({ width }) => ({
-  height: "80vh",
-  maxHeight: "800px",
-  minHeight: "700px",
+  // height: "80vh",
+  height: "800px",
+  // minHeight: "700px",
   width: width,
 
   "& img": {
