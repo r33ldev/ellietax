@@ -60,7 +60,7 @@ export const HeaderNav: React.FC<HeaderProps> = ({}) => {
             <ServiceMenu>
 
               {navItems.map((item, idx) => (
-              <HeaderItem key={idx} onClick={() => router.push(`${item.link}`)}>
+              <HeaderItem key={idx} onClick={() => router.push(`/${item.link}`)}>
                 {item.name}
               </HeaderItem>
             ))}

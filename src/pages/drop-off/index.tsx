@@ -8,14 +8,14 @@ import HeaderNav from "@/components/Molecules/Header/HeaderNav";
 import Text from "@/components/Text";
 import Button from "@/components/Button";
 import { styled } from "@mui/system";
+import { useRouter } from "next/router";
 interface indexProps {}
 
 export const DropoffPage: React.FC<indexProps> = ({}) => {
+  const router = useRouter();
   return (
     <Applayout titleTag="Create new drop-off - Ellietax ">
-      <Section
-        styles={{ height: "100vh", background: "white" }}
-      >
+      <Section styles={{ height: "100vh", background: "white" }}>
         <Wrapper>
           <Section styles={{ width: "65%" }}>
             <Section
@@ -56,7 +56,9 @@ export const DropoffPage: React.FC<indexProps> = ({}) => {
                     width="283px"
                     height="50px"
                     styles={{ marginTop: "4rem" }}
-                    onSubmit={() => {}}
+                    onSubmit={() => {
+                      router.push("/drop-off/new");
+                    }}
                   />
                 </Section>
                 <FlexWrapper>
@@ -100,13 +102,13 @@ export const DropoffPage: React.FC<indexProps> = ({}) => {
   );
 };
 
-const Wrapper = styled("div")(({ theme }) => ({
+const Wrapper = styled("div")(({}) => ({
   height: "100vh",
   //   background: "red",
   display: "flex",
   justifyContent: "space-between",
 }));
-const FlexWrapper = styled("div")(({ theme }) => ({
+const FlexWrapper = styled("div")(({}) => ({
   background: "#F9F9F9",
   borderRadius: "32px 32px 0px 0px",
   height: "34rem",
@@ -116,7 +118,7 @@ const FlexWrapper = styled("div")(({ theme }) => ({
   justifyContent: "center",
 }));
 
-const ColorCut = styled("div")(({ theme }) => ({
+const ColorCut = styled("div")(({}) => ({
   background: "#F9F9F9",
   height: "300px",
   width: "1009px",
@@ -124,7 +126,7 @@ const ColorCut = styled("div")(({ theme }) => ({
   top: "0",
   left: "-32px",
   borderRadius: "0px 0px 0px 32px",
-    zIndex: 0,
+  zIndex: 0,
 }));
 
 export default DropoffPage;

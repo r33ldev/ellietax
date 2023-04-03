@@ -10,12 +10,12 @@ interface ApplayoutProps {
 const PageBody = styled("div")(() => ({
   height: "100vh",
   width: "100vw",
-  background: "#F9F9F9",
+  // background: "#F9F9F9",
   overflowX: "hidden",
 }));
 
 export const Applayout: React.FC<ApplayoutProps> = ({ children, titleTag }) => {
-  const title = titleTag ? `${titleTag} | Richoco` : "Richoco";
+  const title = titleTag ? `${titleTag}` : "Ellietax";
   return (
     <>
       <Head>
