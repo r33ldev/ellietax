@@ -77,6 +77,7 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
                 width="240px"
                 height="50px"
                 styles={{ margin: "4rem 0" }}
+                onSubmit={() => router.push("/my-dropoffs")}
               />
             </form>
           </Section>
