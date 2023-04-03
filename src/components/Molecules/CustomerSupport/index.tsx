@@ -10,6 +10,7 @@ import React from "react";
 interface indexProps {}
 
 export const CustomerSupport: React.FC<indexProps> = ({}) => {
+
   return (
     <Section>
       <Section
@@ -46,6 +47,11 @@ export const CustomerSupport: React.FC<indexProps> = ({}) => {
                 addon={whatsappIcon}
                 width="265px"
                 height="50px"
+                onSubmit={() =>
+                  window.open(
+                    "https://web.whatsapp.com/send?phone=+1 929-688-3459&text=", "_blank"
+                  )
+                }
               />
               <Button
                 text="Contact us"
