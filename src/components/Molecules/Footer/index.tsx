@@ -67,9 +67,15 @@ export const Footer: React.FC<indexProps> = ({}) => {
               text="917-745-3172"
             />
             <FilteredFooterImages>
-              <Image src={instagram} alt="" style={{cursor:'pointer'}} />
-              <Image src={facebook} alt="" />
-              <Image src={youtube} alt="" />
+              <span>
+                <Image src={instagram} alt="" />
+              </span>
+              <span>
+                <Image src={facebook} alt="" />
+              </span>
+              <span>
+                <Image src={youtube} alt="" />
+              </span>
             </FilteredFooterImages>
           </Section>
         </Flex>
@@ -84,7 +90,7 @@ export const Footer: React.FC<indexProps> = ({}) => {
               text="Copyright © 2022-2023 EllieTax. All Rights Reserved."
               styles={{ margin: "2rem 0", width: "80%" }}
             />
-            <Flex justify="flex-end" gap="3rem">
+            <Flex justify="flex-end" gap="3rem" margin="1rem 0 0">
               <Text
                 type="p"
                 fontSize="1.6rem"
@@ -113,11 +119,12 @@ const FilteredFooterImages = styled("div")({
   display: "flex",
   gap: "1rem",
   alignItems: "center",
-  "& img": {
-    zIndex: 100,
-    position: "relative",
+  "& span": {
     cursor: "pointer",
-    filter: "brightness(0.5) contrast(1.2) hue-rotate(180deg)",
+
+    "& img": {
+      filter: "brightness(0)",
+    },
   },
 });
 

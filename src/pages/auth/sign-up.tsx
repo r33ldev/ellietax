@@ -18,6 +18,8 @@ interface SignInProps {}
 export const SignIn: React.FC<SignInProps> = ({}) => {
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [details, setDetails] = useState({ code: "+234", phone: "" });
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
@@ -140,7 +142,14 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
                 styles={{ margin: "4rem 0 2rem" }}
               />
               <CustomInput>
-                <select name="code" id="code" value={"+234"}>
+                <select
+                  name="code"
+                  id="code"
+                  value={details.code}
+                  onChange={(e) =>
+                    setDetails({ ...details, code: e.target.value })
+                  }
+                >
                   {COUNTRY_CODES.map((code) => (
                     <option key={code.dial_code} value={code.dial_code}>
                       {code.dial_code}
@@ -149,7 +158,7 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
                 </select>
                 <input
                   style={{
-                    width: "510px",
+                    width: "440px",
                     height: "70px",
                     borderRadius: "0 15px 15px 0",
                     outline: "none",

@@ -1,6 +1,6 @@
 import Button from "@/components/Button";
 import { styled } from "@mui/system";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Button as MuiButton } from "@mui/material";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -8,6 +8,8 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import EllieLogo from "@/assets/images/ellietax-logo.png";
 import Flex from "@/components/Flex";
+import { useScreenResolution } from "@/hooks/useScreenResolution";
+import { useOnClickOutside } from "@/hooks/useOnClickOutside";
 
 interface HeaderProps {
   page?: string;
@@ -33,13 +35,20 @@ export const HeaderNav: React.FC<HeaderProps> = ({ page }) => {
     setOpen(!open);
   };
 
+  const { width } = useScreenResolution();
+  const ref = useRef<HTMLDivElement>(null);
+  useOnClickOutside(ref, () => setOpen(false));
   return (
-    <Header>
+    <Header ref={ref}>
       <HeaderItem onClick={() => router.push("/")}>
         <Image src={EllieLogo} alt="" />
       </HeaderItem>
       {page !== "auth" && (
-        <Flex justify="flex-end" gap="2vw" overflow="unset">
+        <Flex
+          justify="flex-end"
+          gap={width > 1400 ? "3rem" : "1.2rem"}
+          overflow="unset"
+        >
           <HeaderItem onClick={handleClick}>
             Services we offer{" "}
             {open ? (
@@ -122,13 +131,13 @@ const HeaderItem = styled(MuiButton)(() => ({
 const ServiceMenu = styled("div")(() => ({
   // display: open ? "block" : "none",
   position: "absolute",
-  top: "70%",
+  top: "110%",
   left: 0,
   width: "286px",
   backgroundColor: "white",
-  boxShadow: "0px 1px 16px -14px rgb(0 0 0 / 75%)",
-  WebkitBoxShadow: "0px 1px 16px -14px rgb(0 0 0 / 75%)",
-  MozBoxShadow: "0px 1px 16px -14px rgb(0 0 0 / 75%)",
+  boxShadow: "0px 7px 19px -12px rgb(0 0 0 / 75%)",
+  // WebkitBoxShadow: "0px 1px 16px -14px rgb(0 0 0 / 75%)",
+  // MozBoxShadow: "0px 1px 16px -14px rgb(0 0 0 / 75%)",
   borderRadius: "10px",
   padding: "1rem",
 }));
