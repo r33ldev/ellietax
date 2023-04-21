@@ -65,8 +65,8 @@ export const HeroTextIconMobile: React.FC<HeroTextProps> = ({
       xmlns="http://www.w3.org/2000/svg"
       // width="309"
       // height="163"
-      width={width}
-      height={height}
+      width={width||"309"}
+      height={height||"163"}
       viewBox="0 0 349 163"
     >
       <text

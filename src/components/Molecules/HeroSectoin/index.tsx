@@ -4,10 +4,10 @@ import whatsappIcon from "@/assets/images/whatsapp-white.svg";
 import Button from "@/components/Button";
 import Flex from "@/components/Flex";
 import { HeroTextIcon, HeroTextIconMobile } from "@/components/icons/HeroText";
+import heroText from "@/assets/images/heroText.svg";
 import Section from "@/components/Section";
 import Text from "@/components/Text";
 import { useScreenResolution } from "@/hooks/useScreenResolution";
-import { Divider } from "@mui/material";
 import { styled } from "@mui/system";
 import Image from "next/image";
 import React from "react";
@@ -34,10 +34,14 @@ export const HeroSection: React.FC<indexProps> = ({}) => {
           }}
         >
           <HeaderNav isMobile={isMobile} />
-         
+
           <Jumbotron isMobile={isMobile}>
             {isMobile ? (
-              <HeroTextIconMobile width="100%" height="163" vw={width} />
+              <Image
+                src={heroText}
+                alt=""
+                style={{ width: "100%", height: "100%", objectFit: "fill" }}
+              />
             ) : (
               <HeroTextIcon width="100%" height="173" vw={width} />
             )}
@@ -87,8 +91,8 @@ const HeroImage = styled("div")<{ isMobile: boolean }>(({ isMobile }) => ({
   width: isMobile ? "100%" : "35%",
   marginTop: isMobile ? "2rem" : "0",
   "& img": {
-    width: !isMobile && "100%",
-    height: !isMobile && "100%",
+    width: "100%",
+    height: "100%",
   },
 }));
 
