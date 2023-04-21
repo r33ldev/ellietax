@@ -34,7 +34,7 @@ export const HeroSection: React.FC<indexProps> = ({}) => {
           }}
         >
           <HeaderNav isMobile={isMobile} />
-          {isMobile && <Divider sx={{ marginTop: "1rem" }} />}
+          {isMobile && <Divider sx={{ marginTop: "4.5rem" }} />}
           <Jumbotron isMobile={isMobile}>
             {isMobile ? (
               <HeroTextIconMobile width="100%" height="163" vw={width} />
