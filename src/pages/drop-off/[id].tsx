@@ -1,24 +1,21 @@
-import Section from "@/components/Section";
-import Text from "@/components/Text";
-import Applayout from "@/layout/AppLayout";
-import { styled } from "@mui/system";
-import React, { useState } from "react";
-import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-import Flex from "@/components/Flex";
-import Button from "@/components/Button";
-import { useRouter } from "next/router";
-import accounting from "@/assets/images/accounting.svg";
-import credit from "@/assets/images/credit.svg";
-import tax from "@/assets/images/tax.svg";
 import attachment from "@/assets/images/attachment.svg";
 import image from "@/assets/images/image.jpg";
 import popp from "@/assets/images/popp.jpg";
 import trash from "@/assets/images/trash.jpg";
-import Image from "next/image";
-import Modal from "@mui/material/Modal";
-import { Box } from "@mui/material";
+import Button from "@/components/Button";
+import Flex from "@/components/Flex";
+import Section from "@/components/Section";
+import Text from "@/components/Text";
+import Applayout from "@/layout/AppLayout";
 import CloseIcon from "@mui/icons-material/Close";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import QueryBuilderIcon from "@mui/icons-material/QueryBuilder";
+import { Box } from "@mui/material";
+import Modal from "@mui/material/Modal";
+import { styled } from "@mui/system";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
 interface indexProps {}
 
 function UploadedImage() {

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="390" height="436.042" viewBox="0 0 390 436.042">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_54" data-name="Rectangle 54" width="390" height="436.042" transform="translate(974.529)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_3" data-name="Mask Group 3" transform="translate(-974.529)" clip-path="url(#clip-path)">
+    <g id="Group_353" data-name="Group 353" transform="translate(967.364 -13.853)">
+      <rect id="Rectangle_51" data-name="Rectangle 51" width="407" height="607" transform="translate(0.165 -0.147)" fill="#dae2fa"/>
+      <g id="Group_348" data-name="Group 348" transform="translate(0 2.587)">
+        <g id="Group_346" data-name="Group 346" transform="translate(0.38)">
+          <line id="Line_15" data-name="Line 15" y2="604.831" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_16" data-name="Line 16" y2="604.831" transform="translate(81.354)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_17" data-name="Line 17" y2="604.831" transform="translate(162.708)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_18" data-name="Line 18" y2="604.831" transform="translate(244.061)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_19" data-name="Line 19" y2="604.831" transform="translate(325.415)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_20" data-name="Line 20" y2="604.831" transform="translate(406.769)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+        </g>
+        <g id="Group_347" data-name="Group 347">
+          <line id="Line_21" data-name="Line 21" x1="407.529" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_22" data-name="Line 22" x1="407.529" transform="translate(0 81.354)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_23" data-name="Line 23" x1="407.529" transform="translate(0 174.999)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_24" data-name="Line 24" x1="407.529" transform="translate(0 262.499)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_25" data-name="Line 25" x1="407.529" transform="translate(0 349.999)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_26" data-name="Line 26" x1="407" transform="translate(0.165 443.266)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+          <line id="Line_27" data-name="Line 27" x1="407" transform="translate(0.165 525.266)" fill="none" stroke="#b3c6f8" stroke-width="1"/>
+        </g>
+      </g>
+      <g id="Group_352" data-name="Group 352" transform="translate(0 52.179)">
+        <g id="Group_349" data-name="Group 349">
+          <path id="Path_309" data-name="Path 309" d="M1383.53,175.713s-103.4-9.124-121.651,30.413,72.99,103.4,48.66,127.733-100.362-48.66-145.981-30.413,27.371,100.362,0,127.733-68.2-17.094-109.485-18.248S976,443.344,976,443.344" transform="translate(-976 -174.803)" fill="none" stroke="#4e7aef" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+          <g id="Ellipse_773" data-name="Ellipse 773" transform="translate(279.796 25.24)" fill="#fff" stroke="#90aeff" stroke-width="2">
+            <circle cx="6.083" cy="6.083" r="6.083" stroke="none"/>
+            <circle cx="6.083" cy="6.083" r="5.083" fill="none"/>
+          </g>
+          <g id="Ellipse_774" data-name="Ellipse 774" transform="translate(145.981 256.376)" fill="#4e7aef" stroke="#90aeff" stroke-width="2">
+            <circle cx="6.083" cy="6.083" r="6.083" stroke="none"/>
+            <circle cx="6.083" cy="6.083" r="5.083" fill="none"/>
+          </g>
+        </g>
+        <g id="Group_350" data-name="Group 350" transform="translate(178.674 5.472)">
+          <path id="Rectangle_52" data-name="Rectangle 52" d="M15.206,0H76.032A15.206,15.206,0,0,1,91.238,15.206V30.413a0,0,0,0,1,0,0H15.206A15.206,15.206,0,0,1,0,15.206v0A15.206,15.206,0,0,1,15.206,0Z" fill="#fff"/>
+          <text id="_5.850" data-name="$5.850" transform="translate(12.165 20.083)" fill="#4e7aef" font-size="14" font-family="Avenir-Heavy, Avenir" font-weight="800"><tspan x="0" y="0">$5.850</tspan></text>
+        </g>
+        <g id="Group_351" data-name="Group 351" transform="translate(147.501 275.384)">
+          <path id="Rectangle_53" data-name="Rectangle 53" d="M0,0H76.032A15.206,15.206,0,0,1,91.238,15.206v0A15.206,15.206,0,0,1,76.032,30.413H15.206A15.206,15.206,0,0,1,0,15.206V0A0,0,0,0,1,0,0Z" transform="translate(0)" fill="#4e7aef"/>
+          <text id="_0.30" data-name="$0.30" transform="translate(12.165 20.083)" fill="#fff" font-size="14" font-family="Avenir-Heavy, Avenir" font-weight="800"><tspan x="0" y="0">$0.30</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

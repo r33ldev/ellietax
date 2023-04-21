@@ -1,12 +1,13 @@
 import heroMap from "@/assets/images/hero-map.png";
+import heroMapMobile from "@/assets/images/heroMapMobile.svg";
 import whatsappIcon from "@/assets/images/whatsapp-white.svg";
 import Button from "@/components/Button";
 import Flex from "@/components/Flex";
-import HeroTextIcon from "@/components/icons/HeroText";
+import { HeroTextIcon, HeroTextIconMobile } from "@/components/icons/HeroText";
 import Section from "@/components/Section";
 import Text from "@/components/Text";
 import { useScreenResolution } from "@/hooks/useScreenResolution";
-import { BoxProps } from "@mui/material";
+import { Divider } from "@mui/material";
 import { styled } from "@mui/system";
 import Image from "next/image";
 import React from "react";
@@ -15,22 +16,36 @@ import HeaderNav from "../Header/HeaderNav";
 interface indexProps {}
 
 export const HeroSection: React.FC<indexProps> = ({}) => {
-  const { width } = useScreenResolution();
+  const { width, isMobile } = useScreenResolution();
 
   return (
-    <Flex justify="space-between" background="white" id="hero-section">
-      <Section styles={{ width: "65%" }}>
+    <Flex
+      justify="space-between"
+      background="white"
+      id="hero-section"
+      direction={isMobile ? "column" : "row"}
+    >
+      <Section styles={{ width: isMobile ? "100%" : "65%" }}>
         <Section
-          styles={{ width: "80%", margin: "0 auto", paddingTop: "3rem" }}
+          styles={{
+            width: isMobile ? "100%" : "80%",
+            margin: "0 auto",
+            paddingTop: isMobile ? "1.5rem" : "3rem",
+          }}
         >
-          <HeaderNav />
-          <Jumbotron>
-            <HeroTextIcon width="100%" height="173" vw={width} />
+          <HeaderNav isMobile={isMobile} />
+          {isMobile && <Divider sx={{ marginTop: "1rem" }} />}
+          <Jumbotron isMobile={isMobile}>
+            {isMobile ? (
+              <HeroTextIconMobile width="100%" height="163" vw={width} />
+            ) : (
+              <HeroTextIcon width="100%" height="173" vw={width} />
+            )}
             <Text
               type="p"
               text="Secure your small business finances with our expert financial services. From bookkeeping to tax preparation, we'll help you stay on track and grow your business. Contact us today for a consultation!"
               color="#494949"
-              fontSize="2rem"
+              fontSize={isMobile ? "1.7rem" : "2rem"}
               styles={{ marginTop: "3rem", lineHeight: "3rem" }}
             />
             <Flex gap="3rem" margin="3rem 0">
@@ -38,11 +53,12 @@ export const HeroSection: React.FC<indexProps> = ({}) => {
                 text="Quick message"
                 background="#4E7AEF"
                 addon={whatsappIcon}
-                width="265px"
-                height="50px"
+                width={isMobile ? "183px" : "265px"}
+                height={isMobile ? "45px" : "50px"}
                 onSubmit={() =>
                   window.open(
-                    "https://web.whatsapp.com/send?phone=+1 929-688-3459&text=", "_blank"
+                    "https://web.whatsapp.com/send?phone=+1 929-688-3459&text=",
+                    "_blank"
                   )
                 }
               />
@@ -51,37 +67,34 @@ export const HeroSection: React.FC<indexProps> = ({}) => {
                 color="#4E7AEF"
                 background="transparent"
                 border="1px solid #4E7AEF"
-                width="196px"
-                height="50px"
+                width={isMobile ? "118px" : "196px"}
+                height={isMobile ? "45px" : "50px"}
               />
             </Flex>
           </Jumbotron>
         </Section>
       </Section>
-      <HeroImage width="35%">
-        <Image src={heroMap} alt="" />
+      <HeroImage isMobile={isMobile}>
+        <Image src={isMobile ? heroMapMobile : heroMap} alt="" />
       </HeroImage>
     </Flex>
   );
 };
 export default HeroSection;
 
-const HeroImage = styled("div", {
-  shouldForwardProp: (prop) => prop !== "width",
-})<BoxProps & { width: string }>(({ width }) => ({
-  // height: "80vh",
+const HeroImage = styled("div")<{ isMobile: boolean }>(({ isMobile }) => ({
   height: "800px",
-  // minHeight: "700px",
-  width: width,
-
+  width: isMobile ? "100%" : "35%",
+  marginTop: isMobile ? "2rem" : "0",
   "& img": {
-    width: "100%",
-    height: "100%",
+    width: !isMobile && "100%",
+    height: !isMobile && "100%",
   },
 }));
 
-const Jumbotron = styled("div")(() => ({
-  marginTop: "12rem",
+const Jumbotron = styled("div")<{ isMobile: boolean }>(({ isMobile }) => ({
+  margin: isMobile ? "0 auto" : "0",
+  marginTop: isMobile ? "3rem" : "11rem",
   width: "90%",
 }));
 

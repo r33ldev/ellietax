@@ -1,3 +1,4 @@
+import { useScreenResolution } from "@/hooks/useScreenResolution";
 import { Button as MuiButton } from "@mui/material";
 import { Property } from "csstype";
 import Image from "next/image";
@@ -35,6 +36,8 @@ const Button: React.FC<ButtonProps> = ({
   aos,
   styles,
 }) => {
+  const {isMobile} = useScreenResolution()
+  fontSize = isMobile ? "1.4rem" : fontSize
   const Btnstyles = {
     background: background,
     color: color || "#fff",
