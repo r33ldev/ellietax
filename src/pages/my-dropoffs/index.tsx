@@ -19,7 +19,7 @@ export const MyDropoffs: React.FC<indexProps> = ({}) => {
     <Applayout titleTag="My dropoffs - Ellietax">
       <div>
         <Section styles={{ width: "80%", margin: "3rem auto" }}>
-          <HeaderNav />
+          <HeaderNav isMobile/>
           <Section
             styles={{
               display: "flex",

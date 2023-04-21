@@ -21,7 +21,7 @@ export const DropoffPage: React.FC<indexProps> = ({}) => {
             <Section
               styles={{ width: "80%", margin: "0 auto", paddingTop: "3rem" }}
             >
-              <HeaderNav />
+              <HeaderNav isMobile />
 
               <Flex justify="space-between" direction="column" gap="5rem">
                 <Section
