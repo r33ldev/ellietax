@@ -9,6 +9,7 @@ import Image from "next/image";
 import React from "react";
 import immigration from "@/assets/images/immigration-tax.svg";
 import Flex from "@/components/Flex";
+import { useScreenResolution } from "@/hooks/useScreenResolution";
 interface indexProps {}
 
 export const TaxSection: React.FC<indexProps> = ({}) => {
@@ -38,20 +39,24 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
       icon: taxservice,
     },
   ];
+  const { isMobile } = useScreenResolution();
   return (
-    <Section id='tax-service'>
+    <Section id="tax-service">
       <Section styles={{ width: "85%", margin: "10rem auto" }}>
-        <Section styles={{ margin: "2rem 0", width: "80%" }}>
+        <Section
+          styles={{ margin: "2rem 0", width: isMobile ? "100%" : "80%" }}
+        >
           <Text
             type="h1"
-            fontSize="5.6rem"
+            fontSize={isMobile ? "3.2rem" : "5.6rem"}
             color="#161616"
             text="Tax Services"
             weight="700"
+             styles={{ lineHeight: "4rem", width: "70%" }}
           />
           <Text
             type="p"
-            fontSize="2rem"
+            fontSize={isMobile ? "1.6rem" : "2rem"}
             color="#494949"
             styles={{ margin: "2.5rem 0", lineHeight: "3rem" }}
             text="Leave your taxes to us! Our professional tax services will help you file your taxes accurately and on time. With our expertise, you can maximize your deductions and minimize your tax liability."
@@ -67,7 +72,7 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
           <Section
             styles={{
               display: "grid",
-              gridTemplateColumns: "repeat(2, 1fr)",
+              gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
             }}
           >
             {taxItems.map((item, index) => (
@@ -85,7 +90,7 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
               >
                 <Section
                   styles={{
-                    padding: "3rem 6rem 3rem",
+                    padding: isMobile ? "3rem 2rem 0" : "3rem 6rem 3rem",
                     width: "100%",
                   }}
                 >
@@ -97,7 +102,7 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
                   />
                   <Text
                     type="h3"
-                    fontSize="3.2rem"
+                    fontSize={isMobile ? "2.4rem" : "3.2rem"}
                     color="#161616"
                     text={item.title}
                     weight="700"
@@ -123,13 +128,13 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
               </Section>
             ))}
           </Section>
-          <Section styles={{ padding: "6rem" }}>
-            <Flex gap="2rem">
+          <Section styles={{ padding: isMobile ? '3rem' : '6rem' }}>
+            <Flex gap="2rem" direction={isMobile ? 'column' : 'row'}>
               <Image src={immigration} alt="" />
               <Section>
                 <Text
                   type="h3"
-                  fontSize="3.2rem"
+                  fontSize={isMobile ? "2.4rem" : "3.2rem"}
                   color="#161616"
                   text="Immigration tax services"
                   weight="700"

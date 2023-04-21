@@ -93,7 +93,7 @@ export const AccountingSection: React.FC<indexProps> = ({}) => {
                 />
                 <Text
                   type="h3"
-                  fontSize="3.2rem"
+                  fontSize={isMobile ? "2.4rem" : "3.2rem"}
                   color="#161616"
                   text={item.title}
                   weight="700"
