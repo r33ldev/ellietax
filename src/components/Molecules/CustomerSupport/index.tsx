@@ -1,16 +1,20 @@
-import support from '@/assets/images/customer-support.png';
+import support from "@/assets/images/customer-support.png";
 import whatsappIcon from "@/assets/images/whatsapp-white.svg";
 import Button from "@/components/Button";
 import Flex from "@/components/Flex";
-import CustomerSupportIcon from '@/components/icons/SupportText';
+import {
+  CustomerSupportIcon,
+  CustomerSupportIconMobile,
+} from "@/components/icons/SupportText";
 import Section from "@/components/Section";
 import Text from "@/components/Text";
+import { useScreenResolution } from "@/hooks/useScreenResolution";
 import Image from "next/image";
 import React from "react";
 interface indexProps {}
 
 export const CustomerSupport: React.FC<indexProps> = ({}) => {
-
+  const { isMobile } = useScreenResolution();
   return (
     <Section>
       <Section
@@ -18,21 +22,30 @@ export const CustomerSupport: React.FC<indexProps> = ({}) => {
           width: "85%",
           margin: "10rem auto",
           background: "white",
-          borderRadius: "64px",
+          borderRadius: isMobile ? "32px" : "64px",
         }}
       >
-        <Flex align="center" gap="6rem">
+        <Flex
+          align="center"
+          gap={isMobile ? "0rem" : "6rem"}
+          direction={isMobile ? "column" : "row"}
+        >
           <Image
             src={support}
             alt="customer support"
             style={{
-              width: "40%",
+              width: isMobile ? "100%" : "40%",
               height: "100%",
               maxWidth: "495px",
             }}
           />
-          <Section styles={{ width: "50%" }}>
-            <CustomerSupportIcon />
+          <Section
+            styles={{
+              width: isMobile ? "100%" : "50%",
+              padding: isMobile ? "3rem" : 0,
+            }}
+          >
+            {isMobile ? <CustomerSupportIconMobile /> : <CustomerSupportIcon />}
             <Text
               type="p"
               fontSize="2rem"
@@ -49,7 +62,8 @@ export const CustomerSupport: React.FC<indexProps> = ({}) => {
                 height="50px"
                 onSubmit={() =>
                   window.open(
-                    "https://web.whatsapp.com/send?phone=+1 929-688-3459&text=", "_blank"
+                    "https://web.whatsapp.com/send?phone=+1 929-688-3459&text=",
+                    "_blank"
                   )
                 }
               />
