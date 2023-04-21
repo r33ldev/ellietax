@@ -9,9 +9,11 @@ import Text from "@/components/Text";
 import Button from "@/components/Button";
 import { styled } from "@mui/system";
 import { useRouter } from "next/router";
+import { useScreenResolution } from "@/hooks/useScreenResolution";
 interface indexProps {}
 
 export const DropoffPage: React.FC<indexProps> = ({}) => {
+  const { isMobile } = useScreenResolution();
   const router = useRouter();
   return (
     <Applayout titleTag="Create new drop-off - Ellietax ">

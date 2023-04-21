@@ -189,6 +189,7 @@ export const HeaderNav: React.FC<HeaderProps> = ({ page, isMobile }) => {
           )
         )}
       </Header>
+        {isMobile && <Divider style={{ marginTop: "4.5rem" }} />}
     </>
   );
 };
