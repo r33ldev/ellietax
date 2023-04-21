@@ -57,7 +57,7 @@ export const ServiceBanner: React.FC<indexProps> = ({}) => {
               styles={{
                 width: isMobile ? "100%" : "33.33%",
                 textAlign: "center",
-                margin: `4rem auto ${isMobile ? '1rem' : '4rem'}`,
+                margin: `4rem auto ${isMobile ? "1rem" : "4rem"}`,
                 display: "flex",
                 justifyContent: "center",
                 ...(isMobile && { paddingBottom: "5rem" }),
@@ -79,6 +79,7 @@ export const ServiceBanner: React.FC<indexProps> = ({}) => {
                   text={item.description}
                   color="#494949"
                   fontSize="1.4rem"
+                  styles={{ marginTop: isMobile ? "2rem" : "0", lineHeight: '2rem' }}
                 />
               </BannerItem>
             </Section>

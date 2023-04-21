@@ -5,6 +5,7 @@ import scriptorium from "@/assets/images/scriptorium.svg";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
 import Text from "@/components/Text";
+import { useScreenResolution } from "@/hooks/useScreenResolution";
 import Image from "next/image";
 import React from "react";
 interface indexProps {}
@@ -36,13 +37,14 @@ export const AccountingSection: React.FC<indexProps> = ({}) => {
       icon: consulting,
     },
   ];
+  const { isMobile } = useScreenResolution();
   return (
     <Section id="accounting-service">
       <Section styles={{ width: "85%", margin: "0 auto" }}>
         <Section styles={{ margin: "2rem 0", width: "80%" }}>
           <Text
             type="h1"
-            fontSize="5.6rem"
+            fontSize={isMobile ? "4.8rem" : "5.6rem"}
             color="#161616"
             text="Accounting Services"
             weight="700"
