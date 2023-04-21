@@ -7,6 +7,7 @@ import creditRepair from "@/assets/images/credit-repair.svg";
 import { styled } from "@mui/system";
 import Image from "next/image";
 import Text from "@/components/Text";
+import { useScreenResolution } from "@/hooks/useScreenResolution";
 interface indexProps {}
 
 export const ServiceBanner: React.FC<indexProps> = ({}) => {
@@ -29,13 +30,18 @@ export const ServiceBanner: React.FC<indexProps> = ({}) => {
       icon: creditRepair,
     },
   ];
+  const { isMobile } = useScreenResolution();
   return (
     <Section
-      styles={{ margin: "-12rem 0 0 0", zIndex: "200", position: "relative" }}
+      styles={{
+        margin: `${isMobile ? "-5rem" : "-12rem"} 0 0 0`,
+        zIndex: "200",
+        position: "relative",
+      }}
     >
       <Section
         styles={{
-          borderRadius: "64px",
+          borderRadius: isMobile ? "32px" : "64px",
           background: "white",
           width: "85%",
           boxShadow: "0px 1px 16px -14px rgb(0 0 0 / 75%)",
@@ -44,17 +50,19 @@ export const ServiceBanner: React.FC<indexProps> = ({}) => {
           margin: "0 auto",
         }}
       >
-        <Flex justify="space-between">
+        <Flex justify="space-between" direction={isMobile ? "column" : "row"}>
           {bannerItems.map((item, index) => (
             <Section
               key={index}
               styles={{
-                width: "33%",
+                width: isMobile ? "100%" : "33.33%",
                 textAlign: "center",
-                margin: "4rem auto",
+                margin: `4rem auto ${isMobile ? '1rem' : '4rem'}`,
                 display: "flex",
                 justifyContent: "center",
-                borderRight: "1px solid #E5E5E570",
+                ...(isMobile && { paddingBottom: "5rem" }),
+                [!isMobile ? "borderRight" : index !== 2 ? "borderBottom" : ""]:
+                  "1px solid #E5E5E570",
               }}
             >
               <BannerItem key={index}>

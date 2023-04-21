@@ -83,7 +83,7 @@ export const HeroSection: React.FC<indexProps> = ({}) => {
 export default HeroSection;
 
 const HeroImage = styled("div")<{ isMobile: boolean }>(({ isMobile }) => ({
-  height: "800px",
+  height: isMobile ? "auto" : "800px",
   width: isMobile ? "100%" : "35%",
   marginTop: isMobile ? "2rem" : "0",
   "& img": {
