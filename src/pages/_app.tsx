@@ -1,3 +1,4 @@
+"use client";
 import createEmotionCache from "@/layout/createEmotionCache";
 import theme from "@/layout/theme";
 import "@/styles/globals.css";

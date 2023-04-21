@@ -8,27 +8,41 @@ import instagram from "@/assets/images/instagram.svg";
 import facebook from "@/assets/images/facebook.svg";
 import youtube from "@/assets/images/youtube.svg";
 import { styled } from "@mui/system";
+import { useScreenResolution } from "@/hooks/useScreenResolution";
 interface indexProps {}
 
 export const Footer: React.FC<indexProps> = ({}) => {
+  const { isMobile } = useScreenResolution();
   return (
     <Section styles={{ background: "white" }}>
       <Section
-        styles={{ width: "80%", margin: "0 auto", padding: "10rem 0 0" }}
+        styles={{
+          width: "85%",
+          margin: "0 auto",
+          padding: `${isMobile ? 6 : 10}rem 0 0`,
+        }}
       >
-        <Flex gap="3rem" align="flex-start">
-          <Section styles={{ width: "33%" }}>
+        <Flex
+          gap="3rem"
+          align="flex-start"
+          direction={isMobile ? "column" : "row"}
+        >
+          <Section styles={{ width: isMobile ? "100%" : "33%" }}>
             <Image src={EllieLogo} alt="" width="67" height="86" />
             <Text
               type="p"
-              fontSize="2rem"
+              fontSize={isMobile ? "1.6rem" : "2rem"}
               color="#494949"
               text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et"
-              styles={{ margin: "2rem 0", lineHeight: "3rem", width: "80%" }}
+              styles={{
+                margin: "2rem 0",
+                lineHeight: "3rem",
+                width: isMobile ? "100%" : "80%",
+              }}
             />
           </Section>
 
-          <Section styles={{ width: "33%" }}>
+          <Section styles={{ width: isMobile ? "100%" : "33%" }}>
             <Text
               type="h1"
               fontSize="3.2rem"
@@ -38,13 +52,17 @@ export const Footer: React.FC<indexProps> = ({}) => {
             />
             <Text
               type="p"
-              fontSize="2rem"
+              fontSize={isMobile ? "1.6rem" : "2rem"}
               color="#494949"
               text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut"
-              styles={{ margin: "2rem 0", lineHeight: "3rem", width: "80%" }}
+              styles={{
+                margin: "2rem 0",
+                lineHeight: "3rem",
+                width: isMobile ? "100%" : "80%",
+              }}
             />
           </Section>
-          <Section styles={{ width: "33%" }}>
+          <Section styles={{ width: isMobile ? "100%" : "33%" }}>
             <Text
               type="h1"
               fontSize="3.2rem"
@@ -54,14 +72,14 @@ export const Footer: React.FC<indexProps> = ({}) => {
             />
             <Text
               type="p"
-              fontSize="2rem"
+              fontSize={isMobile ? "1.6rem" : "2rem"}
               color="#494949"
               styles={{ margin: "1rem 0 .5rem", lineHeight: "3rem" }}
               text="desk@ellietax.com"
             />
             <Text
               type="p"
-              fontSize="2rem"
+              fontSize={isMobile ? "1.6rem" : "2rem"}
               color="#494949"
               styles={{ margin: ".5rem 0", lineHeight: "3rem" }}
               text="917-745-3172"
@@ -82,28 +100,46 @@ export const Footer: React.FC<indexProps> = ({}) => {
         <Section
           styles={{ borderTop: "1px solid #e5e5e580", marginTop: "2rem" }}
         >
-          <Flex justify="space-between" width="100%">
+          <Flex
+            justify="space-between"
+            width="100%"
+            direction={isMobile ? "column" : "row"}
+            margin={isMobile ? "2rem 0 2rem" : "0"}
+          >
             <Text
               type="p"
-              fontSize="1.6rem"
+              fontSize={isMobile ? "1.2rem" : "1.6rem"}
               color="#494949"
               text="Copyright © 2022-2023 EllieTax. All Rights Reserved."
-              styles={{ margin: "2rem 0", width: "80%" }}
+              styles={{
+                margin: `${isMobile ? 0 : 2}rem 0`,
+                width: isMobile ? "100%" : "80%",
+              }}
             />
-            <Flex justify="flex-end" gap="3rem" margin="1rem 0 0">
+            <Flex
+              justify={isMobile ? "flex-start" : "flex-end"}
+              gap={isMobile ? "1rem" : "3rem"}
+              margin="1rem 0 0"
+            >
               <Text
                 type="p"
-                fontSize="1.6rem"
+                fontSize={isMobile ? "1.2rem" : "1.6rem"}
                 color="#494949"
-                styles={{ margin: "1rem 0 .5rem", cursor: "pointer" }}
+                styles={{
+                  margin: isMobile ? "0" : "1rem 0 .5rem",
+                  cursor: "pointer",
+                }}
                 text="Terms"
                 weight="700"
               />
               <Text
                 type="p"
-                fontSize="1.6rem"
+                fontSize={isMobile ? "1.2rem" : "1.6rem"}
                 color="#494949"
-                styles={{ margin: "1rem 0 .5rem", cursor: "pointer" }}
+                styles={{
+                  margin: isMobile ? "0" : "1rem 0 .5rem",
+                  cursor: "pointer",
+                }}
                 text="Privacy Policy"
                 weight="700"
               />
