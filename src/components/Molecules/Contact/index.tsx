@@ -9,34 +9,44 @@ import youtube from "@/assets/images/youtube.svg";
 import Input, { TextArea } from "@/components/Input";
 import Button from "@/components/Button";
 import { styled } from "@mui/system";
+import { useScreenResolution } from "@/hooks/useScreenResolution";
 interface indexProps {}
 
 export const Contact: React.FC<indexProps> = ({}) => {
+  const { isMobile } = useScreenResolution();
   return (
-    <Section id='drop-off'>
+    <Section id="drop-off">
       <Section
         styles={{
           width: "85%",
           margin: "10rem auto",
           background: "white",
-          borderRadius: "64px",
+          borderRadius: isMobile ? "3.2rem" : "64px",
         }}
       >
-        <Flex align="flex-start" gap="6rem" padding="6rem">
-          <Section styles={{ width: "50%" }}>
+        <Flex
+          align="flex-start"
+          gap={isMobile ? "0" : "6rem"}
+          padding={isMobile ? "3rem" : "6rem"}
+          direction={isMobile ? "column" : "row"}
+        >
+          <Section styles={{ width: isMobile ? "100%" : "50%" }}>
             <Text
               type="h1"
-              fontSize="5.6rem"
+              fontSize={isMobile ? "3.2rem" : "5.6rem"}
               color="#161616"
               text="Contact us"
               weight="700"
             />
             <Text
               type="p"
-              fontSize="2rem"
+              fontSize={isMobile ? "1.6rem" : "2rem"}
               color="#494949"
               styles={{ margin: "2.5rem 0", lineHeight: "3rem" }}
-              text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem"
+              text={"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem".slice(
+                0,
+                120
+              )}
             />
             <Text
               type="h1"
@@ -48,7 +58,7 @@ export const Contact: React.FC<indexProps> = ({}) => {
             />
             <Text
               type="p"
-              fontSize="2rem"
+              fontSize={isMobile ? "1.6rem" : "2rem"}
               color="#494949"
               styles={{ margin: "1.5rem 0", lineHeight: "3rem" }}
               text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy"
@@ -63,42 +73,62 @@ export const Contact: React.FC<indexProps> = ({}) => {
             />
             <Text
               type="p"
-              fontSize="2rem"
+              fontSize={isMobile ? "1.6rem" : "2rem"}
               color="#494949"
               styles={{ margin: "1rem 0 .5rem", lineHeight: "3rem" }}
               text="desk@ellietax.com"
             />
             <Text
               type="p"
-              fontSize="2rem"
+              fontSize={isMobile ? "1.6rem" : "2rem"}
               color="#494949"
               styles={{ margin: ".5rem 0", lineHeight: "3rem" }}
               text="917-745-3172"
             />
-            <Flex gap="1rem" align="center">
-              <Image src={instagram} alt="" />
-              <Image src={facebook} alt="" />
-              <Image src={youtube} alt="" />
+            <Flex gap="1rem" align="center" margin=".5rem 0 4rem">
+              <Image
+                src={instagram}
+                alt=""
+                style={{ filter: "brightness(0)" }}
+              />
+              <Image
+                src={facebook}
+                alt=""
+                style={{ filter: "brightness(0)" }}
+              />
+              <Image src={youtube} alt="" style={{ filter: "brightness(0)" }} />
             </Flex>
           </Section>
-          <Section styles={{ width: "50%" }}>
+          <Section styles={{ width: isMobile ? "100%" : "50%" }}>
             <Text
               type="h1"
-              fontSize="5.6rem"
+              fontSize={isMobile ? "3.2rem" : "5.6rem"}
               color="#161616"
               text="Drop a message"
               weight="700"
             />
             <Text
               type="p"
-              fontSize="2rem"
+              fontSize={isMobile ? "1.6rem" : "2rem"}
               color="#494949"
-              text="Your email address will not be published. Required fields are marked *"
-              styles={{ margin: "2rem 0" }}
+              text="Your email address will not be published."
+              styles={{ margin: "2rem 0 0" }}
+            />
+            <Text
+              type="p"
+              fontSize={isMobile ? "1.6rem" : "2rem"}
+              color="#494949"
+              text="Required fields are marked *"
+              styles={{ margin: ".5rem 0 2rem" }}
             />
 
             <form>
-              <Flex gap="2rem" align="flex-start" margin="2rem 0">
+              <Flex
+                gap="2rem"
+                align="flex-start"
+                margin="2rem 0"
+                direction={isMobile ? "column" : "row"}
+              >
                 <Input placeholder="Enter your name" />
                 <Input placeholder="Enter your email" />
               </Flex>
@@ -121,7 +151,7 @@ export const Contact: React.FC<indexProps> = ({}) => {
                 text="Contact us"
                 background="#4E7AEF"
                 border="1px solid #4E7AEF"
-                width="196px"
+                width={isMobile?'100%':"196px"}
                 height="50px"
               />
             </form>
@@ -154,6 +184,7 @@ const RadioInput = styled("div")(() => ({
     paddingTop: "2px",
     fontSize: "1.5rem",
     cursor: "pointer",
+    display: "flex",
   },
   ".radio-label:after": {
     content: '""',

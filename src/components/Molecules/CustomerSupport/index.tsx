@@ -48,17 +48,21 @@ export const CustomerSupport: React.FC<indexProps> = ({}) => {
             {isMobile ? <CustomerSupportIconMobile /> : <CustomerSupportIcon />}
             <Text
               type="p"
-              fontSize="2rem"
+              fontSize={isMobile ? "1.6rem" : "2rem"}
               color="#494949"
               styles={{ marginTop: "2rem", lineHeight: "3rem" }}
               text="A full-service accounting firm in midtown Manhattan, our seasoned certified public accountants will remove your financial pain points with accounting services that make managing your money easier. We have the essential tools you need to track expenses, monitor cash flow, and identify financial trends so you can plan for the future of your business"
             />
-            <Flex gap="3rem" margin="3rem 0">
+            <Flex
+              gap="3rem"
+              margin="3rem 0"
+              direction={isMobile ? "column" : "row"}
+            >
               <Button
                 text="Quick message"
                 background="#4E7AEF"
                 addon={whatsappIcon}
-                width="265px"
+                width={isMobile ? "100%" : "265px"}
                 height="50px"
                 onSubmit={() =>
                   window.open(
@@ -72,7 +76,7 @@ export const CustomerSupport: React.FC<indexProps> = ({}) => {
                 color="#4E7AEF"
                 background="transparent"
                 border="1px solid #4E7AEF"
-                width="196px"
+                width={isMobile ? "100%" : "196px"}
                 height="50px"
               />
             </Flex>

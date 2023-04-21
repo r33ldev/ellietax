@@ -17,7 +17,7 @@ export const CreditRepair: React.FC<indexProps> = ({}) => {
           <Flex gap="1rem" align="flex-start">
             <Text
               type="h1"
-              fontSize={isMobile ? "3.2rem" : "3.2rem"}
+              fontSize={isMobile ? "3.2rem" : "5.6rem"}
               color="#161616"
               text="Credit repair"
               weight="700"
