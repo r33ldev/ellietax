@@ -41,17 +41,20 @@ export const AccountingSection: React.FC<indexProps> = ({}) => {
   return (
     <Section id="accounting-service">
       <Section styles={{ width: "85%", margin: "0 auto" }}>
-        <Section styles={{ margin: "2rem 0", width: "80%" }}>
+        <Section
+          styles={{ margin: "2rem 0", width: isMobile ? "100%" : "80%" }}
+        >
           <Text
             type="h1"
-            fontSize={isMobile ? "4.8rem" : "5.6rem"}
+            fontSize={isMobile ? "3.2rem" : "5.6rem"}
             color="#161616"
             text="Accounting Services"
             weight="700"
+            styles={{ lineHeight: "4rem", width: "70%" }}
           />
           <Text
             type="p"
-            fontSize="2rem"
+            fontSize={isMobile ? "1.6rem" : "2rem"}
             color="#494949"
             styles={{ margin: "2.5rem 0", lineHeight: "3rem" }}
             text="Stay on top of your finances with our expert accounting services. From bookkeeping to financial reporting, we'll help you make informed decisions and achieve your business goals"
@@ -60,7 +63,7 @@ export const AccountingSection: React.FC<indexProps> = ({}) => {
         <Section
           styles={{
             display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
             background: "white",
             borderRadius: "3.2rem",
             marginTop: "4rem",
@@ -78,7 +81,7 @@ export const AccountingSection: React.FC<indexProps> = ({}) => {
             >
               <Section
                 styles={{
-                  padding: "3rem 6rem 3rem",
+                  padding: isMobile ? "3rem 2rem 0" : "3rem 6rem 3rem",
                   width: "100%",
                 }}
               >
