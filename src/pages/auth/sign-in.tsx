@@ -16,7 +16,7 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
     <Applayout titleTag="Sign-in to Ellietax">
       <div>
         <Section styles={{ width: "80%", margin: "3rem auto" }}>
-          <HeaderNav page="auth" />
+          <HeaderNav page="auth" isMobile />
 
           <Section styles={{ width: "50%", margin: "6rem auto" }}>
             <Text
