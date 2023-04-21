@@ -93,6 +93,8 @@ const HeroImage = styled("div")<{ isMobile: boolean }>(({ isMobile }) => ({
   "& img": {
     width: "100%",
     height: "100%",
+    objectFit: "cover",
+    maxHeight: isMobile && "460px",
   },
 }));
 
