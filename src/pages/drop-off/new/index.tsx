@@ -168,7 +168,7 @@ export const NewDropoff: React.FC<indexProps> = ({}) => {
           styles={{
             width: isMobile ? "85%" : "45vw",
             maxWidth: "620px",
-            margin: `${isMobile ? " 1rem" : "5rem"} auto`,
+            margin: `${isMobile ? "1rem" : "5rem"} auto`,
           }}
         >
           <Text
@@ -235,20 +235,22 @@ export const NewDropoff: React.FC<indexProps> = ({}) => {
               ))}
             </DropoffTypes>
           ) : (
-            <UploadDropoffs>
-              <Text
-                text="Upload documents"
-                type="h2"
-                fontSize="2rem"
-                weight="600"
-                styles={{ paddingTop: "1rem" }}
-              />
-              <UploadArea>
+            <UploadDropoffs isMobile={isMobile}>
+              {!isMobile && (
+                <Text
+                  text="Upload documents"
+                  type="h2"
+                  fontSize="2rem"
+                  weight="600"
+                  styles={{ paddingTop: "1rem" }}
+                />
+              )}
+              <UploadArea isMobile={isMobile}>
                 <Section>
                   <Image src={attachment} width="50" height="50" alt="" />
                   <p
                     style={{
-                      fontSize: "2rem",
+                      fontSize: { isMobile } ? "1.6rem" : "2rem",
                       fontWeight: "400",
                       color: "#494949",
                       margin: "1.2rem 0",
@@ -260,22 +262,36 @@ export const NewDropoff: React.FC<indexProps> = ({}) => {
                   <Text
                     text="PNG, JPG, PDF, GIF up to 10MB"
                     type="p"
-                    fontSize="1.6rem"
+                    fontSize={isMobile ? "1.4rem" : "1.6rem"}
                     weight="400"
                   />
                 </Section>
               </UploadArea>
-              <Flex gap="2rem">
+              <GridMan isMobile={isMobile}>
                 {Array.from({ length: 4 }).map((_, index) => (
                   <UploadedImage key={index} />
                 ))}
-              </Flex>
+              </GridMan>
             </UploadDropoffs>
           )}
         </Section>
-        <Divider />
-        <div>
-          <Flex align="center" gap="5rem" margin="2rem 0 0">
+        <div
+          style={{
+            width: "100%",
+            ...(isMobile && {
+              position: "fixed",
+              bottom: 0,
+              background: "white",
+            }),
+          }}
+        >
+          <Divider />
+          <Flex
+            align="center"
+            gap="5rem"
+            margin={`${isMobile ? 2 : 3}rem 0`}
+            justify="center"
+          >
             <Section>
               <Flex align="center">
                 <KeyboardArrowLeftIcon />
@@ -303,11 +319,19 @@ export const NewDropoff: React.FC<indexProps> = ({}) => {
   );
 };
 
+const GridMan = styled("div")<{ isMobile: boolean }>(({ isMobile }) => ({
+  display: "grid",
+  gridTemplateColumns: `repeat(${isMobile ? 2 : 4}, minmax(160px, 1fr))`,
+  gridGap: "2rem",
+  overflow: "hidden",
+}));
+
 const DropoffTypeWrapper = styled("div")(() => ({
   display: "flex",
   flexDirection: "column",
   background: "#FFFFFF",
   alignItems: "center",
+  // justifyContent:'space-between',
   height: "100vh",
   margin: "2rem auto",
 }));
@@ -316,7 +340,7 @@ const Divider = styled("div")(() => ({
   width: "100%",
   height: "1px",
   background: "#E5E5E5",
-  marginTop: "2rem",
+  // marginTop: "2rem",
   // paddingBottom: "7rem",
 }));
 
@@ -345,15 +369,15 @@ const DropoffType = styled("div")<{
   maxWidth: "500px",
 }));
 
-const UploadDropoffs = styled("div")(() => ({
-  margin: "7rem 0 1rem 0",
+const UploadDropoffs = styled("div")<{ isMobile: boolean }>(({ isMobile }) => ({
+  margin: `${isMobile ? "2rem 0 10rem 0" : "7rem 0 1rem 0"}`,
 }));
 
-const UploadArea = styled("div")(() => ({
+const UploadArea = styled("div")<{ isMobile: boolean }>(({ isMobile }) => ({
   width: "100%",
-  height: "250px",
+  height: isMobile ? "184px" : "250px",
   background: "transparent",
-  margin: "3rem 0",
+  margin: `${isMobile ? 2 : 3}rem 0`,
   borderRadius: "16px",
   border: "2px dashed #E7E7E7",
   display: "flex",
