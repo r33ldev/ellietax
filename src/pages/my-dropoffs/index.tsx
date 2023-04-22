@@ -95,8 +95,8 @@ export const MyDropoffs: React.FC<indexProps> = ({}) => {
                 weight="600"
                 styles={{ paddingTop: "1rem" }}
               />
-              {[...Array(4)].map(() => (
-                <RecentItem>
+              {[...Array(4)].map((_,id) => (
+                <RecentItem key={id}>
                   <Flex
                     align="center"
                     gap="3rem"
