@@ -21,6 +21,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import QueryBuilderIcon from "@mui/icons-material/QueryBuilder";
 import { useScreenResolution } from "@/hooks/useScreenResolution";
 import HeaderNav from "@/components/Molecules/Header/HeaderNav";
+import { Popup } from "antd-mobile";
 interface indexProps {}
 
 function UploadedImage() {
@@ -63,6 +64,71 @@ const ImageWrapper = styled("div")<{ hover: boolean }>(({ hover }) => ({
   position: "relative",
 }));
 
+const ModalContent = ({
+  style,
+  handleClose,
+  isMobile,
+}: {
+  style: any;
+  handleClose: () => void;
+  isMobile: boolean;
+}) => {
+  return (
+    <Box sx={style}>
+      {!isMobile && (
+        <CloseIcon
+          onClick={handleClose}
+          fontSize="large"
+          style={{
+            position: "absolute",
+            top: "30px",
+            right: "30px",
+            cursor: "pointer",
+          }}
+        />
+      )}
+      <Image src={popp} alt="" width={257} />
+      <Text
+        text="Submitted successfully"
+        type="h2"
+        fontSize={isMobile ? "2.4rem" : "4rem"}
+        weight="600"
+      />
+      <Text
+        text="Our commitment to integrity, professionalism, and customer satisfaction means that you can trust us to handle your taxes with the utmost care and confidentiality."
+        type="p"
+        fontSize={isMobile ? "1.6rem" : "2rem"}
+        weight="400"
+        color="#494949"
+        styles={{
+          marginTop: "2rem",
+          textAlign: "center",
+          lineHeight: "3rem",
+          width: "80%",
+        }}
+      />
+
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          margin: "2rem 0",
+        }}
+      >
+        <QueryBuilderIcon />
+        <Text
+          text="Response time: less than 24hrs"
+          type="p"
+          fontSize={isMobile ? "1.4rem" : "1.6rem"}
+          weight="800"
+          color="#494949"
+          styles={{ marginLeft: "1rem" }}
+        />
+      </div>
+    </Box>
+  );
+};
+
 export const NewDropoff: React.FC<indexProps> = ({}) => {
   const [phase, setPhase] = useState(0);
   const [open, setOpen] = useState(false);
@@ -96,72 +162,54 @@ export const NewDropoff: React.FC<indexProps> = ({}) => {
     handleOpen();
   }
   const style = {
-    position: "absolute" as "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    bgcolor: "white",
     borderRadius: "30px",
-    boxShadow: 24,
-    p: 4,
-    width: "750px",
     flexDirection: "column",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    padding: "6rem 0",
+    fontFamily: "Avenir, sans-serif",
   };
   const { isMobile } = useScreenResolution();
   return (
     <Applayout titleTag="Create new drop-off - Ellietax ">
-      <Modal open={open} onClose={handleClose}>
-        <Box sx={style}>
-          <CloseIcon
-            onClick={handleClose}
-            fontSize="large"
+      {isMobile ? (
+        <Popup
+          visible={open}
+          onClose={handleClose}
+          onMaskClick={handleClose}
+          bodyStyle={{
+            overflow: "scroll",
+            borderRadius: "16px 16px 0px 0px",
+            height: "60vh",
+          }}
+        >
+          <Pad onClick={handleClose} />
+          <ModalContent
+            style={style}
+            handleClose={handleClose}
+            isMobile={isMobile}
+          />
+        </Popup>
+      ) : (
+        <Modal open={open} onClose={handleClose}>
+          <ModalContent
             style={{
-              position: "absolute",
-              top: "30px",
-              right: "30px",
-              cursor: "pointer",
+              ...style,
+              position: "absolute" as "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              bgcolor: "white",
+              boxShadow: 24,
+              p: 4,
+              padding: "6rem 0",
+              width: "750px",
             }}
+            handleClose={handleClose}
+            isMobile={isMobile}
           />
-          <Image src={popp} alt="" width={257} />
-          <Text
-            text="Submitted successfully"
-            type="h2"
-            fontSize="4rem"
-            weight="600"
-          />
-          <Text
-            text="Our commitment to integrity, professionalism, and customer satisfaction means that you can trust us to handle your taxes with the utmost care and confidentiality."
-            type="p"
-            fontSize="2rem"
-            weight="400"
-            color="#494949"
-            styles={{
-              marginTop: "2rem",
-              textAlign: "center",
-              lineHeight: "3rem",
-              width: "80%",
-            }}
-          />
-
-          <div
-            style={{ display: "flex", alignItems: "center", margin: "2rem 0" }}
-          >
-            <QueryBuilderIcon />
-            <Text
-              text="Response time: less than 24hrs"
-              type="p"
-              fontSize="1.6rem"
-              weight="800"
-              color="#494949"
-              styles={{ marginLeft: "1rem" }}
-            />
-          </div>
-        </Box>
-      </Modal>
+        </Modal>
+      )}
       <DropoffTypeWrapper>
         {isMobile && <HeaderNav isMobile={isMobile} />}
         <Section
@@ -368,7 +416,13 @@ const DropoffType = styled("div")<{
   //   transition: "all 0.3s ease-in-out",
   maxWidth: "500px",
 }));
-
+const Pad = styled("div")(() => ({
+  height: ".8rem",
+  width: "15rem",
+  backgroundColor: "#E7E7E7",
+  borderRadius: "10px",
+  margin: "2rem auto",
+}));
 const UploadDropoffs = styled("div")<{ isMobile: boolean }>(({ isMobile }) => ({
   margin: `${isMobile ? "2rem 0 10rem 0" : "7rem 0 1rem 0"}`,
 }));

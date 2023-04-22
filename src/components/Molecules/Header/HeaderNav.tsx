@@ -66,7 +66,6 @@ export const HeaderNav: React.FC<HeaderProps> = ({ page, isMobile }) => {
         onClose={() => setPopupVisible(false)}
         onMaskClick={() => setPopupVisible(false)}
         bodyStyle={{
-          // height: "60vh",
           overflow: "scroll",
           borderRadius: "16px 16px 0px 0px",
         }}
