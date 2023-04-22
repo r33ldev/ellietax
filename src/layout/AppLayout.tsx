@@ -12,6 +12,7 @@ const PageBody = styled("div")(() => ({
   width: "100vw",
   // background: "#F9F9F9",
   overflowX: "hidden",
+  fontFamily: "Avenir",
 }));
 
 export const Applayout: React.FC<ApplayoutProps> = ({ children, titleTag }) => {
