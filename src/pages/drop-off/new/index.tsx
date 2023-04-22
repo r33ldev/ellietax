@@ -19,6 +19,8 @@ import Modal from "@mui/material/Modal";
 import { Box } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import QueryBuilderIcon from "@mui/icons-material/QueryBuilder";
+import { useScreenResolution } from "@/hooks/useScreenResolution";
+import HeaderNav from "@/components/Molecules/Header/HeaderNav";
 interface indexProps {}
 
 function UploadedImage() {
@@ -87,7 +89,7 @@ export const NewDropoff: React.FC<indexProps> = ({}) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
-      router.push("/my-dropoffs");
+    router.push("/my-dropoffs");
   };
   function submitFile() {
     console.log("submitted");
@@ -109,6 +111,7 @@ export const NewDropoff: React.FC<indexProps> = ({}) => {
     justifyContent: "center",
     padding: "6rem 0",
   };
+  const { isMobile } = useScreenResolution();
   return (
     <Applayout titleTag="Create new drop-off - Ellietax ">
       <Modal open={open} onClose={handleClose}>
@@ -144,7 +147,9 @@ export const NewDropoff: React.FC<indexProps> = ({}) => {
             }}
           />
 
-          <div style={{ display: "flex", alignItems:'center',margin:'2rem 0' }}>
+          <div
+            style={{ display: "flex", alignItems: "center", margin: "2rem 0" }}
+          >
             <QueryBuilderIcon />
             <Text
               text="Response time: less than 24hrs"
@@ -158,17 +163,18 @@ export const NewDropoff: React.FC<indexProps> = ({}) => {
         </Box>
       </Modal>
       <DropoffTypeWrapper>
+        {isMobile && <HeaderNav isMobile={isMobile} />}
         <Section
           styles={{
-            width: "45vw",
+            width: isMobile ? "85%" : "45vw",
             maxWidth: "620px",
-            margin: "7rem auto",
+            margin: `${isMobile ? " 1rem" : "5rem"} auto`,
           }}
         >
           <Text
             text="Quickly Drop-Off"
             type="h2"
-            fontSize="5.6rem"
+            fontSize={isMobile ? "4rem" : "5.6rem"}
             weight="600"
             styles={{ paddingTop: "1rem" }}
           />
@@ -176,15 +182,26 @@ export const NewDropoff: React.FC<indexProps> = ({}) => {
             type="p"
             text="Trust us to handle your fianances with care and precision, so you can focus on what matters most to you."
             color="#494949"
-            fontSize="2rem"
-            styles={{ marginTop: "3rem", lineHeight: "3rem" }}
+            fontSize={isMobile ? "1.6rem" : "2rem"}
+            styles={{ marginTop: "2rem", lineHeight: "3rem" }}
           />
-
+          {isMobile && (
+            <Text
+              type="p"
+              text="Upload Documents"
+              color="#494949"
+              fontSize="1.6rem"
+              weight="600"
+              styles={{ marginTop: "1rem", lineHeight: "3rem" }}
+            />
+          )}
           {phase === 0 ? (
-            <DropoffTypes>
+            <DropoffTypes isMobile={isMobile}>
               {types.map((type, index) => (
                 <DropoffType
                   key={index}
+                  index={index}
+                  isMobile={isMobile}
                   border={
                     selectedTypes.includes(type.name)
                       ? "2px solid #4E7AEF"
@@ -192,7 +209,12 @@ export const NewDropoff: React.FC<indexProps> = ({}) => {
                   }
                   onClick={() => setSelectedTypes(type.name)}
                 >
-                  <Image src={type.icon} width="70" height="70" alt="" />
+                  <Image
+                    src={type.icon}
+                    width={isMobile ? 50 : 70}
+                    height={isMobile ? 50 : 70}
+                    alt=""
+                  />
                   <Section>
                     <Text
                       text={type.name}
@@ -204,7 +226,7 @@ export const NewDropoff: React.FC<indexProps> = ({}) => {
                     <Text
                       text={type.description}
                       type="p"
-                      fontSize="1.6rem"
+                      fontSize={isMobile ? "1.4rem" : "1.6rem"}
                       weight="400"
                       styles={{ width: "80%" }}
                     />
@@ -253,26 +275,24 @@ export const NewDropoff: React.FC<indexProps> = ({}) => {
         </Section>
         <Divider />
         <div>
-         <Flex align="center" gap='5rem'>
+          <Flex align="center" gap="5rem" margin="2rem 0 0">
             <Section>
               <Flex align="center">
-              <KeyboardArrowLeftIcon />
-              <Text
-                text="Back"
-                type="p"
-                fontSize="2rem"
-                weight="500"
-                styles={{ paddingLeft: "1rem", cursor: "pointer" }}
-                onClick={() =>
-                  phase === 0 ? router.back() : setPhase(0)
-                }
-              />
-            </Flex>
+                <KeyboardArrowLeftIcon />
+                <Text
+                  text="Back"
+                  type="p"
+                  fontSize="2rem"
+                  weight="500"
+                  styles={{ paddingLeft: "1rem", cursor: "pointer" }}
+                  onClick={() => (phase === 0 ? router.back() : setPhase(0))}
+                />
+              </Flex>
             </Section>
             <Button
               text={phase === 0 ? "Next" : "Submit file"}
               background="#4E7AEF"
-              width="193px"
+              width={isMobile ? "155px" : "193px"}
               height="50px"
               onSubmit={() => (phase === 0 ? setPhase(1) : submitFile())}
             />
@@ -289,25 +309,34 @@ const DropoffTypeWrapper = styled("div")(() => ({
   background: "#FFFFFF",
   alignItems: "center",
   height: "100vh",
-  margin: "0 auto",
+  margin: "2rem auto",
 }));
 
 const Divider = styled("div")(() => ({
   width: "100%",
   height: "1px",
   background: "#E5E5E5",
-  margin: "2rem 0 7rem 0",
+  marginTop: "2rem",
+  // paddingBottom: "7rem",
 }));
 
-const DropoffTypes = styled("div")(() => ({
-  margin: "7rem 0 1rem 0",
+const DropoffTypes = styled("div")<{ isMobile: boolean }>(({ isMobile }) => ({
+  // margin: `${isMobile ? 1 : 7}rem 0 1rem 0`,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
 }));
-const DropoffType = styled("div")<{ border: string }>(({ border }) => ({
+const DropoffType = styled("div")<{
+  border: string;
+  index: number;
+  isMobile: boolean;
+}>(({ border, index, isMobile }) => ({
   display: "flex",
   alignItems: "center",
   gap: "3rem",
   align: "center",
-  margin: "3rem 0",
+  margin: `${index == 2 ? 0 : 3}rem 0`,
+  marginTop: index == 0 ? (isMobile ? "2rem" : "4rem") : "0",
   cursor: "pointer",
   padding: "2rem",
   border: border,
