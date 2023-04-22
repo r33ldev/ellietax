@@ -1,3 +1,4 @@
+import { useScreenResolution } from '@/hooks/useScreenResolution';
 import React from 'react'
 
 interface indexProps {
@@ -19,6 +20,10 @@ export const Input: React.FC<indexProps> = ({
   br,
   fs,
 }) => {
+  const {isMobile} = useScreenResolution()
+  fs = isMobile ? "1.4rem" : fs
+  height = isMobile ? "48px" : height
+  width = isMobile ? "100%" : width
   return (
     <input
       type="text"
