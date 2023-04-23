@@ -39,7 +39,7 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
       icon: taxservice,
     },
   ];
-  const { isMobile } = useScreenResolution();
+  const { isMobile, width } = useScreenResolution();
   return (
     <Section id="tax-service">
       <Section styles={{ width: "85%", margin: "10rem auto" }}>
@@ -52,7 +52,7 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
             color="#161616"
             text="Tax Services"
             weight="700"
-             styles={{ lineHeight: "4rem", width: "70%" }}
+            styles={{ lineHeight: "4rem", width: "70%" }}
           />
           <Text
             type="p"
@@ -72,7 +72,7 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
           <Section
             styles={{
               display: "grid",
-              gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
+              gridTemplateColumns: width <= 770 ? "1fr" : "repeat(2, 1fr)",
             }}
           >
             {taxItems.map((item, index) => (
@@ -128,8 +128,8 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
               </Section>
             ))}
           </Section>
-          <Section styles={{ padding: isMobile ? '3rem' : '6rem' }}>
-            <Flex gap="2rem" direction={isMobile ? 'column' : 'row'}>
+          <Section styles={{ padding: isMobile ? "3rem" : "6rem" }}>
+            <Flex gap="2rem" direction={isMobile ? "column" : "row"}>
               <Image src={immigration} alt="" />
               <Section>
                 <Text
