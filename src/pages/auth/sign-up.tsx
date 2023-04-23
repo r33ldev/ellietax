@@ -5,13 +5,16 @@ import HeaderNav from "@/components/Molecules/Header/HeaderNav";
 import Section from "@/components/Section";
 import Text from "@/components/Text";
 import { COUNTRY_CODES } from "@/data";
+import { useScreenResolution } from "@/hooks/useScreenResolution";
 import Applayout from "@/layout/AppLayout";
 import CloseIcon from "@mui/icons-material/Close";
+import QueryBuilderIcon from "@mui/icons-material/QueryBuilder";
 import { Box, Modal } from "@mui/material";
 import { styled } from "@mui/system";
+import { Popup } from "antd-mobile";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 interface SignInProps {}
 
@@ -29,26 +32,18 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
     console.log("submitted");
     handleOpen();
   }
-  const style = {
-    position: "absolute" as "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    bgcolor: "white",
-    borderRadius: "30px",
-    boxShadow: 24,
-    p: 4,
-    width: "750px",
-    flexDirection: "column",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "3rem 0",
-  };
-  return (
-    <Applayout titleTag="Sign-in to Ellietax">
-      <Modal open={open} onClose={handleClose}>
-        <Box sx={style}>
+  const ModalContent = ({
+    style,
+    handleClose,
+    isMobile,
+  }: {
+    style: any;
+    handleClose: () => void;
+    isMobile: boolean;
+  }) => {
+    return (
+      <Box sx={style}>
+        {!isMobile && (
           <CloseIcon
             onClick={handleClose}
             fontSize="large"
@@ -59,53 +54,108 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
               cursor: "pointer",
             }}
           />
-          <Image src={popp} alt="" width={257} />
-          <Text
-            text="Created successfully"
-            type="h2"
-            fontSize="4rem"
-            weight="600"
-          />
-          <Text
-            text="Our commitment to integrity, professionalism, and customer satisfaction means that you can trust us to handle your taxes with the utmost care and confidentiality."
-            type="p"
-            fontSize="2rem"
-            weight="400"
-            color="#494949"
-            styles={{
-              marginTop: "2rem",
-              textAlign: "center",
-              lineHeight: "3rem",
-              width: "80%",
-            }}
-          />
+        )}
+        <Image src={popp} alt="" width={257} />
+        <Text
+          text="Created successfully"
+          type="h2"
+          fontSize={isMobile ? "2.4rem" : "4rem"}
+          weight="600"
+        />
+        <Text
+          text="Our commitment to integrity, professionalism, and customer satisfaction means that you can trust us to handle your taxes with the utmost care and confidentiality."
+          type="p"
+          fontSize={isMobile ? "1.6rem" : "2rem"}
+          weight="400"
+          color="#494949"
+          styles={{
+            marginTop: "2rem",
+            textAlign: "center",
+            lineHeight: "3rem",
+            width: "80%",
+          }}
+        />
 
-          <Button
-            text="Quickly Drop-off"
-            background="#4E7AEF"
-            border="1px solid #4E7AEF"
-            width="240px"
-            height="50px"
-            styles={{ margin: "4rem 0" }}
-            onSubmit={() => router.push("/drop-off/new")}
+        <Button
+          text="Quickly Drop-off"
+          background="#4E7AEF"
+          border="1px solid #4E7AEF"
+          width="240px"
+          height="50px"
+          styles={{ margin: "4rem 0" }}
+          onSubmit={() => router.push("/drop-off/new")}
+        />
+      </Box>
+    );
+  };
+  const style = {
+    borderRadius: "30px",
+    flexDirection: "column",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontFamily: "Avenir, sans-serif",
+  };
+  const {isMobile} = useScreenResolution()
+  return (
+    <Applayout titleTag="Sign-in to Ellietax">
+      {isMobile ? (
+        <Popup
+          visible={open}
+          onClose={handleClose}
+          onMaskClick={handleClose}
+          bodyStyle={{
+            overflow: "scroll",
+            borderRadius: "16px 16px 0px 0px",
+            height: "60vh",
+          }}
+        >
+          <Pad onClick={handleClose} />
+          <ModalContent
+            style={style}
+            handleClose={handleClose}
+            isMobile={isMobile}
           />
-        </Box>
-      </Modal>
+        </Popup>
+      ) : (
+        <Modal open={open} onClose={handleClose}>
+          <ModalContent
+            style={{
+              ...style,
+              position: "absolute" as "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              bgcolor: "white",
+              boxShadow: 24,
+              p: 4,
+              padding: "6rem 0",
+              width: "750px",
+            }}
+            handleClose={handleClose}
+            isMobile={isMobile}
+          />
+        </Modal>
+      )}
       <div>
-        <Section styles={{ width: "80%", margin: "3rem auto" }}>
+        <Section
+          styles={{ width: isMobile ? "85%" : "80%", margin: "3rem auto" }}
+        >
           <HeaderNav page="auth" isMobile />
 
-          <Section styles={{ width: "50%", margin: "6rem auto" }}>
+          <Section
+            styles={{ width: isMobile ? "100%" : "50%", margin: "6rem auto" }}
+          >
             <Text
               text="Create an account"
               type="h2"
-              fontSize="5rem"
+              fontSize={isMobile ? "3.8rem" : "5rem"}
               weight="600"
               styles={{ paddingTop: "1rem" }}
             />
             <p
               style={{
-                fontSize: "2rem",
+                fontSize: isMobile ? "1.6rem" : "2rem",
                 fontWeight: "400",
                 color: "#494949",
                 margin: "2rem 0 5rem",
@@ -123,7 +173,7 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
               <Text
                 type="p"
                 text="Email Address"
-                fontSize="20px"
+                fontSize={isMobile ? "1.6rem" : "2rem"}
                 weight="600"
                 styles={{ margin: "1.2rem 0" }}
               />
@@ -137,7 +187,7 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
               <Text
                 type="p"
                 text="Phone Number"
-                fontSize="20px"
+                fontSize={isMobile ? "1.6rem" : "2rem"}
                 weight="600"
                 styles={{ margin: "4rem 0 2rem" }}
               />
@@ -174,7 +224,7 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
               <Text
                 type="p"
                 text="Password"
-                fontSize="20px"
+                fontSize={isMobile ? "1.6rem" : "2rem"}
                 weight="600"
                 styles={{ margin: "4rem 0 2rem" }}
               />
@@ -190,7 +240,7 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
                 text="Create account"
                 background="#4E7AEF"
                 border="1px solid #4E7AEF"
-                width="240px"
+                width={isMobile ? "100%" : "240px"}
                 height="50px"
                 styles={{ margin: "4rem 0" }}
                 onSubmit={register}
@@ -202,6 +252,14 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
     </Applayout>
   );
 };
+
+const Pad = styled("div")(() => ({
+  height: ".8rem",
+  width: "15rem",
+  backgroundColor: "#E7E7E7",
+  borderRadius: "10px",
+  margin: "2rem auto",
+}));
 
 const CustomInput = styled("div")(() => ({
   display: "flex",
