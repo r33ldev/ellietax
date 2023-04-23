@@ -37,7 +37,7 @@ export const AccountingSection: React.FC<indexProps> = ({}) => {
       icon: consulting,
     },
   ];
-  const { isMobile } = useScreenResolution();
+  const { isMobile, width } = useScreenResolution();
   return (
     <Section id="accounting-service">
       <Section styles={{ width: "85%", margin: "0 auto" }}>
@@ -63,7 +63,7 @@ export const AccountingSection: React.FC<indexProps> = ({}) => {
         <Section
           styles={{
             display: "grid",
-            gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
+            gridTemplateColumns: width <= 770 ? "1fr" : "repeat(2, 1fr)",
             background: "white",
             borderRadius: "3.2rem",
             marginTop: "4rem",
