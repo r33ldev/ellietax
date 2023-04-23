@@ -67,7 +67,7 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
                 text="Password"
                 fontSize={isMobile ? "1.6rem" : "2rem"}
                 weight="600"
-                styles={{ margin: "4rem 0 2rem" }}
+                styles={{ margin: "2rem 0 2rem" }}
               />
               <Input
                 placeholder="password"
