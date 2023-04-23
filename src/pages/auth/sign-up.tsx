@@ -141,7 +141,7 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
         <Section
           styles={{ width: isMobile ? "85%" : "80%", margin: "3rem auto" }}
         >
-          <HeaderNav page="auth" isMobile />
+          <HeaderNav page="auth" isMobile={isMobile} />
 
           <Section
             styles={{ width: isMobile ? "100%" : "50%", margin: "6rem auto" }}
