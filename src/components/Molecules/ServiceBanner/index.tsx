@@ -38,6 +38,7 @@ export const ServiceBanner: React.FC<indexProps> = ({}) => {
         zIndex: "200",
         position: "relative",
       }}
+      aos='fade-down'
     >
       <Section
         styles={{

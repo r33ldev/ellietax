@@ -87,7 +87,14 @@ const ModalContent = ({
           }}
         />
       )}
-      <Image src={popp} alt="" width={257} />
+      <Image
+        src={popp}
+        alt=""
+        width={257}
+        style={{
+          margin: "2rem 0",
+        }}
+      />
       <Text
         text="Submitted successfully"
         type="h2"
@@ -180,7 +187,7 @@ export const NewDropoff: React.FC<indexProps> = ({}) => {
           bodyStyle={{
             overflow: "scroll",
             borderRadius: "16px 16px 0px 0px",
-            height: "60vh",
+            height: "70vh",
           }}
         >
           <Pad onClick={handleClose} />
@@ -416,13 +423,30 @@ const DropoffType = styled("div")<{
   //   transition: "all 0.3s ease-in-out",
   maxWidth: "500px",
 }));
-const Pad = styled("div")(() => ({
-  height: ".8rem",
-  width: "15rem",
-  backgroundColor: "#E7E7E7",
-  borderRadius: "10px",
-  margin: "2rem auto",
-}));
+const Pad = ({ onClick }: { onClick: () => void }) => {
+  return (
+    <div
+      style={{
+        height: "6rem",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+      onClick={onClick}
+    >
+      <p
+        style={{
+          height: ".8rem",
+          width: "15rem",
+          backgroundColor: "#E7E7E7",
+          borderRadius: "10px",
+          margin: "0 auto",
+        }}
+      ></p>
+    </div>
+  );
+};
+
 const UploadDropoffs = styled("div")<{ isMobile: boolean }>(({ isMobile }) => ({
   margin: `${isMobile ? "2rem 0 10rem 0" : "7rem 0 1rem 0"}`,
 }));

@@ -68,10 +68,11 @@ export const HeaderNav: React.FC<HeaderProps> = ({ page, isMobile }) => {
         bodyStyle={{
           overflow: "scroll",
           borderRadius: "16px 16px 0px 0px",
+          height: "70vh",
         }}
       >
         <Pad onClick={() => setPopupVisible(false)} />
-        <Section styles={{ width: "85%", margin: "6rem auto" }}>
+        <Section styles={{ width: "85%", margin: "2rem auto" }}>
           <Text type="p" text="Services we offer" fontSize="1.6rem" />
           <Section styles={{ marginLeft: "2rem" }}>
             {navItems.map((item, index) => (
@@ -188,7 +189,7 @@ export const HeaderNav: React.FC<HeaderProps> = ({ page, isMobile }) => {
           )
         )}
       </Header>
-        {isMobile && <Divider style={{ marginTop: "4.5rem" }} />}
+      {isMobile && <Divider style={{ marginTop: "4.5rem" }} />}
     </>
   );
 };
@@ -241,12 +242,28 @@ const ServiceMenu = styled("div")(() => ({
   padding: "1rem",
 }));
 
-const Pad = styled("div")(() => ({
-  height: ".8rem",
-  width: "15rem",
-  backgroundColor: "#E7E7E7",
-  borderRadius: "10px",
-  margin: "2rem auto",
-}));
+const Pad = ({ onClick }: { onClick: () => void }) => {
+  return (
+    <div
+      style={{
+        height: "6rem",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+      onClick={onClick}
+    >
+      <p
+        style={{
+          height: ".8rem",
+          width: "15rem",
+          backgroundColor: "#E7E7E7",
+          borderRadius: "10px",
+          margin: "0 auto",
+        }}
+      ></p>
+    </div>
+  );
+};
 
 export default HeaderNav;

@@ -18,7 +18,7 @@ export const CustomerSupport: React.FC<indexProps> = ({}) => {
   const { isMobile } = useScreenResolution();
   const router = useRouter();
   return (
-    <Section>
+    <Section aos='fade-up'>
       <Section
         styles={{
           width: "85%",

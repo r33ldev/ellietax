@@ -17,7 +17,7 @@ interface indexProps {}
 export const EllieDescription: React.FC<indexProps> = ({}) => {
   const { isMobile } = useScreenResolution();
   return (
-    <Section>
+    <Section aos='fade-down'>
       <Section
         styles={{
           width: "85%",
@@ -57,7 +57,7 @@ export const EllieDescription: React.FC<indexProps> = ({}) => {
               <Image
                 src={irsfile}
                 alt=""
-                width={isMobile ? "100" : "150"}
+                width={isMobile ? "130" : "150"}
                 height="50"
                 style={{ objectFit: "scale-down" }}
               />
@@ -65,7 +65,7 @@ export const EllieDescription: React.FC<indexProps> = ({}) => {
                 style={{ objectFit: "scale-down" }}
                 src={agent}
                 alt=""
-                width={isMobile ? "100" : "150"}
+                width={isMobile ? "130" : "150"}
                 height="50"
               />
             </Flex>

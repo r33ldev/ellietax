@@ -5,10 +5,20 @@ interface indexProps {
   children: React.ReactNode;
   id?: string;
   styles?: React.CSSProperties;
+  aos?: string;
 }
 
-export const Section: React.FC<indexProps> = ({ children, id, styles }) => {
-  return <SectionWrapper id={id} style={{ ...styles }}>{children}</SectionWrapper>;
+export const Section: React.FC<indexProps> = ({
+  children,
+  id,
+  styles,
+  aos,
+}) => {
+  return (
+    <SectionWrapper id={id} style={{ ...styles }} >
+      {children}
+    </SectionWrapper>
+  );
 };
 export default Section;
 

@@ -14,7 +14,7 @@ interface indexProps {}
 export const Footer: React.FC<indexProps> = ({}) => {
   const { isMobile } = useScreenResolution();
   return (
-    <Section styles={{ background: "white" }}>
+    <Section styles={{ background: "white" }} aos="fade-up">
       <Section
         styles={{
           width: "85%",

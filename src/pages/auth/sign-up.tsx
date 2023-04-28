@@ -55,7 +55,14 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
             }}
           />
         )}
-        <Image src={popp} alt="" width={257} />
+        <Image
+          src={popp}
+          alt=""
+          width={257}
+          style={{
+            margin: "2rem 0",
+          }}
+        />
         <Text
           text="Created successfully"
           type="h2"
@@ -96,7 +103,7 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
     justifyContent: "center",
     fontFamily: "Avenir, sans-serif",
   };
-  const {isMobile} = useScreenResolution()
+  const { isMobile } = useScreenResolution();
   return (
     <Applayout titleTag="Sign-in to Ellietax">
       {isMobile ? (
@@ -107,7 +114,7 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
           bodyStyle={{
             overflow: "scroll",
             borderRadius: "16px 16px 0px 0px",
-            height: "60vh",
+            height: "70vh",
           }}
         >
           <Pad onClick={handleClose} />
@@ -253,13 +260,29 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
   );
 };
 
-const Pad = styled("div")(() => ({
-  height: ".8rem",
-  width: "15rem",
-  backgroundColor: "#E7E7E7",
-  borderRadius: "10px",
-  margin: "2rem auto",
-}));
+const Pad = ({ onClick }: { onClick: () => void }) => {
+  return (
+    <div
+      style={{
+        height: "6rem",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+      onClick={onClick}
+    >
+      <p
+        style={{
+          height: ".8rem",
+          width: "15rem",
+          backgroundColor: "#E7E7E7",
+          borderRadius: "10px",
+          margin: "0 auto",
+        }}
+      ></p>
+    </div>
+  );
+};
 
 const CustomInput = styled("div")(() => ({
   display: "flex",

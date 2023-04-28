@@ -41,7 +41,7 @@ export const AccountingSection: React.FC<indexProps> = ({}) => {
   const { isMobile, width } = useScreenResolution();
   const router = useRouter();
   return (
-    <Section id={!isMobile ? "accounting-service" : ""}>
+    <Section id={!isMobile ? "accounting-service" : ""} aos='fade-up'>
       <Section styles={{ width: "85%", margin: "1rem auto " }}>
         <Section
           styles={{ margin: "2rem 0", width: isMobile ? "100%" : "80%" }}

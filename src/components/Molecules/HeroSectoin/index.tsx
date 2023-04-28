@@ -26,7 +26,7 @@ export const HeroSection: React.FC<indexProps> = ({}) => {
       id="hero-section"
       direction={isMobile ? "column" : "row"}
     >
-      <Section styles={{ width: isMobile ? "100%" : "65%" }}>
+      <Section styles={{ width: isMobile ? "100%" : "65%" }} aos='fade-up'>
         <Section
           styles={{
             width: isMobile ? "100%" : "80%",

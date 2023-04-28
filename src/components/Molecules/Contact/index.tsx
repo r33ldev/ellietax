@@ -171,7 +171,10 @@ export const Contact: React.FC<indexProps> = ({}) => {
             allowFullScreen={true}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            style={{ border: "0", borderRadius: "0 0 64px 64px" }}
+            style={{
+              border: "0",
+              borderRadius: `0 0 ${isMobile ? "32px 32px" : "64px 64px"}`,
+            }}
           ></iframe>
         </Section>
       </Section>
