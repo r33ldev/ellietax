@@ -21,7 +21,7 @@ export const EllieDescription: React.FC<indexProps> = ({}) => {
       <Section
         styles={{
           width: "85%",
-          margin: "10rem auto",
+          margin: "10rem auto 7rem",
           background: "white",
           borderRadius: isMobile ? "32px" : "64px",
         }}
@@ -80,6 +80,7 @@ export const EllieDescription: React.FC<indexProps> = ({}) => {
             }}
           />
         </Flex>
+        {isMobile && <span id="accounting-service"></span>}
       </Section>
     </Section>
   );

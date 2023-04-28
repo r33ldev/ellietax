@@ -39,8 +39,8 @@ export const AccountingSection: React.FC<indexProps> = ({}) => {
   ];
   const { isMobile, width } = useScreenResolution();
   return (
-    <Section id="accounting-service">
-      <Section styles={{ width: "85%", margin: "0 auto" }}>
+    <Section id={!isMobile ? "accounting-service" : ""}>
+      <Section styles={{ width: "85%", margin: "1rem auto " }}>
         <Section
           styles={{ margin: "2rem 0", width: isMobile ? "100%" : "80%" }}
         >
@@ -119,6 +119,7 @@ export const AccountingSection: React.FC<indexProps> = ({}) => {
             </Section>
           ))}
         </Section>
+        {isMobile && <span id="tax-service"></span>}
       </Section>
     </Section>
   );

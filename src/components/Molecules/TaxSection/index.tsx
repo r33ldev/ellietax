@@ -41,8 +41,8 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
   ];
   const { isMobile, width } = useScreenResolution();
   return (
-    <Section id="tax-service">
-      <Section styles={{ width: "85%", margin: "10rem auto" }}>
+    <Section id={!isMobile ? "tax-service" : ""}>
+      <Section styles={{ width: "85%", margin: "7rem auto 10rem" }}>
         <Section
           styles={{ margin: "2rem 0", width: isMobile ? "100%" : "80%" }}
         >
@@ -159,6 +159,7 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
             </Flex>
           </Section>
         </Section>
+        {isMobile && <span id="credit-repair" />}
       </Section>
     </Section>
   );

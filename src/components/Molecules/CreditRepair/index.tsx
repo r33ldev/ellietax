@@ -11,9 +11,11 @@ interface indexProps {}
 export const CreditRepair: React.FC<indexProps> = ({}) => {
   const { isMobile } = useScreenResolution();
   return (
-    <Section id="credit-repair">
+    <Section id={!isMobile ? "credit-repair" : ""}>
       <Section styles={{ width: "85%", margin: "10rem auto" }}>
-        <Section styles={{ margin: "2rem 0", width: isMobile ? "100%" : "80%" }}>
+        <Section
+          styles={{ margin: "2rem 0", width: isMobile ? "100%" : "80%" }}
+        >
           <Flex gap="1rem" align="flex-start">
             <Text
               type="h1"
