@@ -6,10 +6,12 @@ import repair from "@/assets/images/credit-repair.svg";
 import Image from "next/image";
 import { useScreenResolution } from "@/hooks/useScreenResolution";
 import Button from "@/components/Button";
+import { useRouter } from "next/router";
 interface indexProps {}
 
 export const CreditRepair: React.FC<indexProps> = ({}) => {
   const { isMobile } = useScreenResolution();
+  const router = useRouter();
   return (
     <Section id={!isMobile ? "credit-repair" : ""}>
       <Section styles={{ width: "85%", margin: "10rem auto" }}>
@@ -79,6 +81,9 @@ export const CreditRepair: React.FC<indexProps> = ({}) => {
                   width="196px"
                   height="50px"
                   styles={{ margin: "3rem 0 2rem 0" }}
+                  onSubmit={() => {
+                    router.push("/auth/sign-in");
+                  }}
                 />
               )}
             </Section>

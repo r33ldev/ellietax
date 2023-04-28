@@ -10,12 +10,14 @@ import Input, { TextArea } from "@/components/Input";
 import Button from "@/components/Button";
 import { styled } from "@mui/system";
 import { useScreenResolution } from "@/hooks/useScreenResolution";
+import { useRouter } from "next/router";
 interface indexProps {}
 
 export const Contact: React.FC<indexProps> = ({}) => {
   const { isMobile } = useScreenResolution();
+  const router = useRouter();
   return (
-    <Section id="drop-off">
+    <Section id="contact">
       <Section
         styles={{
           width: "85%",
@@ -151,8 +153,11 @@ export const Contact: React.FC<indexProps> = ({}) => {
                 text="Contact us"
                 background="#4E7AEF"
                 border="1px solid #4E7AEF"
-                width={isMobile?'100%':"196px"}
+                width={isMobile ? "100%" : "196px"}
                 height="50px"
+                onSubmit={() => {
+                  router.push("/#contact");
+                }}
               />
             </form>
           </Section>

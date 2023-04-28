@@ -10,6 +10,7 @@ import React from "react";
 import immigration from "@/assets/images/immigration-tax.svg";
 import Flex from "@/components/Flex";
 import { useScreenResolution } from "@/hooks/useScreenResolution";
+import { useRouter } from "next/router";
 interface indexProps {}
 
 export const TaxSection: React.FC<indexProps> = ({}) => {
@@ -40,6 +41,7 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
     },
   ];
   const { isMobile, width } = useScreenResolution();
+  const router = useRouter();
   return (
     <Section id={!isMobile ? "tax-service" : ""}>
       <Section styles={{ width: "85%", margin: "7rem auto 10rem" }}>
@@ -123,6 +125,9 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
                     width="196px"
                     height="50px"
                     styles={{ margin: "3rem 0 5rem 0" }}
+                    onSubmit={() => {
+                      router.push("/auth/sign-in");
+                    }}
                   />
                 </Section>
               </Section>
@@ -154,6 +159,9 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
                   width="196px"
                   height="50px"
                   styles={{ margin: "3rem 0 2rem 0" }}
+                  onSubmit={() => {
+                    router.push("/auth/sign-in");
+                  }}
                 />
               </Section>
             </Flex>

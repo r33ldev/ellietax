@@ -10,11 +10,13 @@ import Section from "@/components/Section";
 import Text from "@/components/Text";
 import { useScreenResolution } from "@/hooks/useScreenResolution";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 interface indexProps {}
 
 export const CustomerSupport: React.FC<indexProps> = ({}) => {
   const { isMobile } = useScreenResolution();
+  const router = useRouter();
   return (
     <Section>
       <Section
@@ -78,6 +80,9 @@ export const CustomerSupport: React.FC<indexProps> = ({}) => {
                 border="1px solid #4E7AEF"
                 width={isMobile ? "100%" : "196px"}
                 height="50px"
+                onSubmit={() => {
+                  router.push("/#contact");
+                }}
               />
             </Flex>
           </Section>

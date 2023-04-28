@@ -7,6 +7,7 @@ import Section from "@/components/Section";
 import Text from "@/components/Text";
 import { useScreenResolution } from "@/hooks/useScreenResolution";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 interface indexProps {}
 
@@ -38,6 +39,7 @@ export const AccountingSection: React.FC<indexProps> = ({}) => {
     },
   ];
   const { isMobile, width } = useScreenResolution();
+  const router = useRouter();
   return (
     <Section id={!isMobile ? "accounting-service" : ""}>
       <Section styles={{ width: "85%", margin: "1rem auto " }}>
@@ -114,6 +116,9 @@ export const AccountingSection: React.FC<indexProps> = ({}) => {
                   width="196px"
                   height="50px"
                   styles={{ margin: "3rem 0 5rem 0" }}
+                  onSubmit={() => {
+                    router.push("/auth/sign-in");
+                  }}
                 />
               </Section>
             </Section>

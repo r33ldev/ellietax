@@ -12,12 +12,13 @@ import { styled } from "@mui/system";
 import Image from "next/image";
 import React from "react";
 import HeaderNav from "../Header/HeaderNav";
+import { useRouter } from "next/router";
 
 interface indexProps {}
 
 export const HeroSection: React.FC<indexProps> = ({}) => {
   const { width, isMobile } = useScreenResolution();
-
+  const router = useRouter();
   return (
     <Flex
       justify="space-between"
@@ -73,6 +74,9 @@ export const HeroSection: React.FC<indexProps> = ({}) => {
                 border="1px solid #4E7AEF"
                 width={isMobile ? "118px" : "196px"}
                 height={isMobile ? "45px" : "50px"}
+                onSubmit={() => {
+                  router.push("/#contact");
+                }}
               />
             </Flex>
           </Jumbotron>
