@@ -32,7 +32,15 @@ function UploadedImage() {
       onMouseLeave={() => setHover(false)}
       hover={hover}
     >
-      <Image src={image} alt="" width={150} height="150" className="uploaded" />
+      <Image
+        src={image}
+        alt=""
+        style={{
+          width: "100%",
+        }}
+        height="150"
+        className="uploaded"
+      />
       {hover && (
         <div
           style={{
@@ -56,7 +64,7 @@ function UploadedImage() {
 }
 
 const ImageWrapper = styled("div")<{ hover: boolean }>(({ hover }) => ({
-  width: "150px",
+  // width: "150px",
   cursor: "pointer",
   "& .uploaded": {
     opacity: hover ? 0.5 : 1,
@@ -377,7 +385,7 @@ export const NewDropoff: React.FC<indexProps> = ({}) => {
 const GridMan = styled("div")<{ isMobile: boolean }>(({ isMobile }) => ({
   display: "grid",
   gridTemplateColumns: `repeat(${isMobile ? 2 : 4}, minmax(160px, 1fr))`,
-  gridGap: "2rem",
+  gridGap: "1.4rem",
   overflow: "hidden",
 }));
 
