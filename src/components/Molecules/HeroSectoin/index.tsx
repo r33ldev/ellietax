@@ -14,9 +14,9 @@ import React from "react";
 import HeaderNav from "../Header/HeaderNav";
 import { useRouter } from "next/router";
 
-interface indexProps {}
+interface indexProps { }
 
-export const HeroSection: React.FC<indexProps> = ({}) => {
+export const HeroSection: React.FC<indexProps> = ({ }) => {
   const { width, isMobile } = useScreenResolution();
   const router = useRouter();
   return (
@@ -35,7 +35,6 @@ export const HeroSection: React.FC<indexProps> = ({}) => {
           }}
         >
           <HeaderNav isMobile={isMobile} />
-
           <Jumbotron isMobile={isMobile}>
             {isMobile ? (
               <Image

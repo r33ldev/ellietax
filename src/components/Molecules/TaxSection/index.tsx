@@ -43,10 +43,11 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
   const { isMobile, width } = useScreenResolution();
   const router = useRouter();
   return (
-    <Section id={!isMobile ? "tax-service" : ""} aos='fade-up'>
+    <Section id={!isMobile ? "tax-service" : ""} >
       <Section styles={{ width: "85%", margin: "7rem auto 10rem" }}>
         <Section
           styles={{ margin: "2rem 0", width: isMobile ? "100%" : "80%" }}
+          aos='fade-up'
         >
           <Text
             type="h1"
@@ -95,6 +96,7 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
                     padding: isMobile ? "3rem 2rem 0" : "3rem 6rem 3rem",
                     width: "100%",
                   }}
+                  aos='fade-up'
                 >
                   <Image
                     src={item.icon}

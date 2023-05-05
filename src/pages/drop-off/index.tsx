@@ -12,7 +12,7 @@ import { styled } from "@mui/system";
 import { useRouter } from "next/router";
 import { useScreenResolution } from "@/hooks/useScreenResolution";
 import Footer from "@/components/Molecules/Footer";
-interface indexProps {}
+interface indexProps { }
 
 const HandShakeImage = ({ isMobile }: { isMobile: boolean }) => {
   return (
@@ -44,7 +44,7 @@ const HandShakeImage = ({ isMobile }: { isMobile: boolean }) => {
   );
 };
 
-export const DropoffPage: React.FC<indexProps> = ({}) => {
+export const DropoffPage: React.FC<indexProps> = ({ }) => {
   const { isMobile } = useScreenResolution();
   const router = useRouter();
   return (
@@ -150,7 +150,7 @@ const FlexWrapper = styled("div")<{ isMobile: boolean }>(({ isMobile }) => ({
   ...(isMobile && { alignSelf: "center" }),
 }));
 
-const ColorCut = styled("div")(({}) => ({
+const ColorCut = styled("div")(({ }) => ({
   background: "#F9F9F9",
   height: "300px",
   width: "1009px",

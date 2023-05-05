@@ -32,7 +32,7 @@ export const Contact: React.FC<indexProps> = ({}) => {
           padding={isMobile ? "3rem" : "6rem"}
           direction={isMobile ? "column" : "row"}
         >
-          <Section styles={{ width: isMobile ? "100%" : "50%" }}>
+          <Section styles={{ width: isMobile ? "100%" : "50%" }} aos="fade-up">
             <Text
               type="h1"
               fontSize={isMobile ? "3.2rem" : "5.6rem"}
@@ -101,7 +101,7 @@ export const Contact: React.FC<indexProps> = ({}) => {
               <Image src={youtube} alt="" style={{ filter: "brightness(0)" }} />
             </Flex>
           </Section>
-          <Section styles={{ width: isMobile ? "100%" : "50%" }}>
+          <Section styles={{ width: isMobile ? "100%" : "50%" }} aos="fade-up">
             <Text
               type="h1"
               fontSize={isMobile ? "3.2rem" : "5.6rem"}

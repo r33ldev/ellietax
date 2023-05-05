@@ -1,3 +1,4 @@
+import { useScreenResolution } from "@/hooks/useScreenResolution";
 import { styled } from "@mui/system";
 import React from "react";
 
@@ -14,8 +15,9 @@ export const Section: React.FC<indexProps> = ({
   styles,
   aos,
 }) => {
+  const {isMobile} = useScreenResolution()
   return (
-    <SectionWrapper id={id} style={{ ...styles }} >
+    <SectionWrapper id={id} style={{ ...styles }} data-aos={ aos} >
       {children}
     </SectionWrapper>
   );
