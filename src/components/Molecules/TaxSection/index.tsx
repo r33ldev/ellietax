@@ -169,7 +169,7 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
             </Flex>
           </Section>
         </Section>
-        {isMobile && <span id="credit-repair" />}
+        {/* {isMobile && <span id="credit-repair" />} */}
       </Section>
     </Section>
   );
