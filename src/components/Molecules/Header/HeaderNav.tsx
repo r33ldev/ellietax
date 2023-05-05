@@ -77,7 +77,7 @@ export const HeaderNav: React.FC<HeaderProps> = ({ page, isMobile }) => {
           <Text type="p" text="Services we offer" fontSize="1.6rem" />
           <Section styles={{ marginLeft: "2rem" }}>
             {navItems.map((item, index) => (
-              <>
+              <div key={index}>
                 <Divider />
                 <Flex
                   key={index}
@@ -100,7 +100,7 @@ export const HeaderNav: React.FC<HeaderProps> = ({ page, isMobile }) => {
                   </ScrollIntoView>
                   <Image src={rightArrow} alt="" width={20} />
                 </Flex>
-              </>
+              </div>
             ))}
           </Section>
           <Divider />
@@ -168,9 +168,10 @@ export const HeaderNav: React.FC<HeaderProps> = ({ page, isMobile }) => {
                     {navItems.map((item, idx) => (
                       <ScrollIntoView selector={`${item.link}`}
                         alignToTop
+                        key={idx}
                       >
                         <HeaderItem
-                          key={idx}
+
                         >
                           {item.name}
                         </HeaderItem>

@@ -45,7 +45,8 @@ const HandShakeImage = ({ isMobile }: { isMobile: boolean }) => {
 };
 
 export const DropoffPage: React.FC<indexProps> = ({ }) => {
-  const { isMobile } = useScreenResolution();
+  const { isMobile, width } = useScreenResolution();
+  console.log('width: ', width, isMobile)
   const router = useRouter();
   return (
     <Applayout titleTag="Create new drop-off - Ellietax ">
