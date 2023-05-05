@@ -65,7 +65,7 @@ export const TextArea: React.FC<indexProps> = ({
       }}
       name=""
       placeholder={placeholder}
-      id=""
+
       cols={10}
       rows={7}
     ></textarea>

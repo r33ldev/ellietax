@@ -13,7 +13,7 @@ export const CreditRepair: React.FC<indexProps> = ({}) => {
   const { isMobile } = useScreenResolution();
   const router = useRouter();
   return (
-    <Section id={ "credit-repair" } aos='fade-up'>
+    <Section aos='fade-up'>
       <Section styles={{ width: "85%", margin: "10rem auto" }}>
         <Section
           styles={{ margin: "2rem 0", width: isMobile ? "100%" : "80%" }}

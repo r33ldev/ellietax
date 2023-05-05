@@ -86,7 +86,7 @@ export const HeaderNav: React.FC<HeaderProps> = ({ page, isMobile }) => {
                   styles={{ cursor: "pointer" }}
                 >
                   <ScrollIntoView selector={`${item.link}`}
-                    alignToTop
+                    alignToTop={false}
                   >
 
                     <Text
@@ -167,7 +167,7 @@ export const HeaderNav: React.FC<HeaderProps> = ({ page, isMobile }) => {
                   <ServiceMenu>
                     {navItems.map((item, idx) => (
                       <ScrollIntoView selector={`${item.link}`}
-                        alignToTop
+                        alignToTop={false}
                       >
                         <HeaderItem
                           key={idx}

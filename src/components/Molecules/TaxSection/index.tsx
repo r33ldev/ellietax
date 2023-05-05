@@ -43,7 +43,7 @@ export const TaxSection: React.FC<indexProps> = ({}) => {
   const { isMobile, width } = useScreenResolution();
   const router = useRouter();
   return (
-    <Section id={!isMobile ? "tax-service" : ""} >
+    <Section >
       <Section styles={{ width: "85%", margin: "7rem auto 10rem" }}>
         <Section
           styles={{ margin: "2rem 0", width: isMobile ? "100%" : "80%" }}

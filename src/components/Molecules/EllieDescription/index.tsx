@@ -80,7 +80,9 @@ export const EllieDescription: React.FC<indexProps> = ({}) => {
             }}
           />
         </Flex>
-        {isMobile && <span id="accounting-service"></span>}
+        {/* {isMobile &&  */}
+        {/* <span id="accounting-service"></span> */}
+        {/* // } */}
       </Section>
     </Section>
   );
