@@ -26,6 +26,17 @@ export default function MyApp(props: MyAppProps) {
       once: false, // Whether animation should happen only once
       mirror: true,
     });
+    let observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          Aos.refresh();
+        }
+      });
+    });
+    document.querySelectorAll("[data-aos]").forEach((aosElem) => {
+      observer.observe(aosElem);
+    });
+
     if (typeof window !== "undefined") {
       const loader = document.getElementById("globalLoader");
       const style = document.getElementById("loaderStyles");

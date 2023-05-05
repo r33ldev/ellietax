@@ -50,7 +50,7 @@ export const Flex: React.FC<indexProps> = ({
         flexDirection: direction,
         background: background,
         width: width,
-        overflow: overflow || "hidden",
+        overflow: overflow || "unset",
         borderRadius: borderRadius,
         padding: padding,
       }}

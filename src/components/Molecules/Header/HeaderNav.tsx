@@ -16,6 +16,7 @@ import rightArrow from "@/assets/images/right-arrow.png";
 import { Divider, Popup } from "antd-mobile";
 import Section from "@/components/Section";
 import Text from "@/components/Text";
+import ScrollIntoView from "react-scroll-into-view";
 
 interface HeaderProps {
   page?: string;
@@ -84,15 +85,19 @@ export const HeaderNav: React.FC<HeaderProps> = ({ page, isMobile }) => {
                   margin="2rem 0"
                   styles={{ cursor: "pointer" }}
                 >
-                  <Text
-                    type="p"
-                    text={item.name}
-                    fontSize="1.6rem"
-                    onClick={() => {
-                      router.push(`/${item.link}`);
-                      setPopupVisible(false);
-                    }}
-                  />
+                  <ScrollIntoView selector={`${item.link}`}
+                    alignToTop
+                  >
+
+                    <Text
+                      type="p"
+                      text={item.name}
+                      fontSize="1.6rem"
+                      onClick={() => {
+                        setPopupVisible(false);
+                      }}
+                    />
+                  </ScrollIntoView>
                   <Image src={rightArrow} alt="" width={20} />
                 </Flex>
               </>
@@ -161,12 +166,15 @@ export const HeaderNav: React.FC<HeaderProps> = ({ page, isMobile }) => {
                 {open && (
                   <ServiceMenu>
                     {navItems.map((item, idx) => (
-                      <HeaderItem
-                        key={idx}
-                        onClick={() => router.push(`/${item.link}`)}
+                      <ScrollIntoView selector={`${item.link}`}
+                        alignToTop
                       >
-                        {item.name}
-                      </HeaderItem>
+                        <HeaderItem
+                          key={idx}
+                        >
+                          {item.name}
+                        </HeaderItem>
+                      </ScrollIntoView>
                     ))}
                   </ServiceMenu>
                 )}

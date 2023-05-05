@@ -28,7 +28,7 @@
     "next": "13.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-scroll-into-view": "^1.12.0",
+    "react-scroll-into-view": "^1.12.1",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
     "typescript": "4.9.5"

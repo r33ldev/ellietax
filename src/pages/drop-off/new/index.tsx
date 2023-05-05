@@ -386,7 +386,7 @@ const GridMan = styled("div")<{ isMobile: boolean }>(({ isMobile }) => ({
   display: "grid",
   gridTemplateColumns: `repeat(${isMobile ? 2 : 4}, minmax(160px, 1fr))`,
   gridGap: "1.4rem",
-  overflow: "hidden",
+  // overflow: "hidden",
 }));
 
 const DropoffTypeWrapper = styled("div")(() => ({

@@ -11,7 +11,7 @@ const PageBody = styled("div")(() => ({
   height: "100vh",
   width: "100vw",
   // background: "#F9F9F9",
-  overflowX: "hidden",
+  // overflowX: "hidden",
   fontFamily: "Avenir",
 }));
 

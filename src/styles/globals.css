@@ -114,6 +114,10 @@ section {
 body {
   line-height: 1;
 }
+
+body  {
+  overflow-x: hidden;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -147,7 +151,6 @@ table {
 html {
   font-size: 10px; /*  62.5% of 16px */
   font-family: "Avenir", sans-serif;
-  overflow-x: hidden !important;
 }
 
 .scroll-arrow {
